@@ -1,0 +1,19 @@
+.spinner {
+    height: 100%;
+    aspect-ratio: 1/1;
+    border: 0.3rem solid black;
+    border-right: 0.3rem solid transparent;
+    border-radius: 50%;
+    animation: spinnerAnimation 1.2s linear infinite;
+
+}
+
+@keyframes spinnerAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
