@@ -1,12 +1,9 @@
 .tagCard {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: 0.9rem;
     color: white;
     font-weight: 400;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    border-radius: 0.125rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.2rem;
     filter: brightness(0.9);
 }
+

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./PokemonsList.css"
 import { Card } from "../components/molecules/Card";
+import { Header } from "../components/organisms/header";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 export const PokemonsList = () => {
     const [pokemons, setPokemons] = useState([])
@@ -29,15 +31,30 @@ export const PokemonsList = () => {
 
     return (
         <>
-            <div className="containerPokemonCard" >
-                {
-                    pokemons.map((pokemon, index) => {
-                        return (
-                            <Card key={pokemon.url} pokemonName={pokemon.name} pokemonNumber={index + 1} imageURL={pokemon.image} types={pokemon.types}  ></Card >
-                        )
-                    })
-                }
-            </div >
+            <BrowserRouter>
+                <Header></Header>
+                <Routes>
+                    <Route path="/" element={<h1></h1>}>
+
+                    </Route>
+                    <Route path="/pokemonsList" element={
+                        <>
+
+                            <div className="containerPokemonCard" >
+                                {
+                                    pokemons.map((pokemon, index) => {
+                                        return (
+                                            <Card key={pokemon.url} pokemonName={pokemon.name} pokemonNumber={index + 1} imageURL={pokemon.image} types={pokemon.types}  ></Card >
+                                        )
+                                    })
+                                }
+                            </div >
+                        </>
+                    }>
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+
         </>
     )
 }

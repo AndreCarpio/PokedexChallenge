@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    justify-content: center;
+    border-bottom-width: 1px;
+    border-color: #D1D5DB;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.header .options {
+
+    display: flex;
+    gap: 1.75rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: #9CA3AF;
+
+}
+
+.header .headerSections {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    width: 85%;
+}

@@ -1,0 +1,9 @@
+.headerOption {
+    font-weight: 600;
+    color: #99a1af;
+    text-decoration: none;
+}
+
+.headerOption:hover {
+    color: black;
+}

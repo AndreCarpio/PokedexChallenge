@@ -1,0 +1,19 @@
+.branding {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.branding {
+    cursor: pointer;
+}
+
+.branding .logo {
+    height: 3rem;
+}
+
+.branding .name {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+}
