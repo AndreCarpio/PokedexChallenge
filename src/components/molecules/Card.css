@@ -1,0 +1,16 @@
+.pokemonCard {
+    aspect-ratio: 8 / 5;
+    width: 100%;
+    box-shadow: 0 10px 15px -3px #9ca3af, 0 4px 6px -4px rgba(156, 163, 175, 1);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background: #5a8b4b;
+}
