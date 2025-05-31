@@ -1,5 +1,6 @@
 
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLatter"
+import { getTagColor } from "../../utils/getTagColor.js"
 import { getTypeColor } from "../../utils/getTypeColor"
 import "./PokemonTags.css"
 
@@ -10,7 +11,7 @@ export const PokemonTags = ({ types = [] }) => {
             {
                 types.map((type, index) => {
                     return (
-                        <div key={index} className="tagCard" style={{ backgroundColor: getTypeColor(type) }}>
+                        <div key={index} className="tagCard" style={{ backgroundColor: getTagColor(type) }}>
                             <p>{capitalizeFirstLetter(type)}</p>
                         </div>
                     )
