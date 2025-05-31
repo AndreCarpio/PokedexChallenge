@@ -1,7 +1,7 @@
 .branding {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
 }
 
 .branding {
@@ -9,7 +9,7 @@
 }
 
 .branding .logo {
-    height: 3rem;
+    height: 2.5rem;
 }
 
 .branding .name {

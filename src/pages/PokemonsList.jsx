@@ -31,30 +31,15 @@ export const PokemonsList = () => {
 
     return (
         <>
-            <BrowserRouter>
-                <Header></Header>
-                <Routes>
-                    <Route path="/" element={<h1></h1>}>
-
-                    </Route>
-                    <Route path="/pokemonsList" element={
-                        <>
-
-                            <div className="containerPokemonCard" >
-                                {
-                                    pokemons.map((pokemon, index) => {
-                                        return (
-                                            <Card key={pokemon.url} pokemonName={pokemon.name} pokemonNumber={index + 1} imageURL={pokemon.image} types={pokemon.types}  ></Card >
-                                        )
-                                    })
-                                }
-                            </div >
-                        </>
-                    }>
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-
+            <div className="containerPokemonCard" >
+                {
+                    pokemons.map((pokemon, index) => {
+                        return (
+                            <Card key={pokemon.url} pokemonName={pokemon.name} pokemonNumber={index + 1} imageURL={pokemon.image} types={pokemon.types}  ></Card >
+                        )
+                    })
+                }
+            </div >
         </>
     )
 }
