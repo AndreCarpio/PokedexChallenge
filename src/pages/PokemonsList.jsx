@@ -3,6 +3,7 @@ import "./PokemonsList.css"
 import { Card } from "../components/molecules/Card";
 import { Header } from "../components/organisms/header";
 import { BrowserRouter, Route, Routes } from "react-router";
+import { SearchSeccion } from "../components/molecules/SearchSeccion";
 
 export const PokemonsList = () => {
     const [pokemons, setPokemons] = useState([])
@@ -31,6 +32,7 @@ export const PokemonsList = () => {
 
     return (
         <>
+            <SearchSeccion></SearchSeccion>
             <div className="containerPokemonCard" >
                 {
                     pokemons.map((pokemon, index) => {
