@@ -10,6 +10,12 @@
     position: relative;
     padding: 1.25rem 1.75rem;
     background: #5a8b4b;
+    transition-duration: 0.3s;
+}
+
+.pokemonCard:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .pokemonCard p {
