@@ -1,6 +1,10 @@
 .containerPokemonCard {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
-    gap: 4.5rem;
-    padding: 4rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: space-between;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr)); */
+  gap: 4.5rem;
+  padding: 4rem;
 }

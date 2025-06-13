@@ -1,23 +1,26 @@
 .pokemonCard {
-    aspect-ratio: 8 / 5;
-    width: 100%;
-    box-shadow: 0 10px 15px -3px #9ca3af, 0 4px 6px -4px rgba(156, 163, 175, 1);
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
-    position: relative;
-    padding: 1.25rem 1.75rem;
-    background: #5a8b4b;
-    transition-duration: 0.3s;
+  margin: auto;
+  flex: 1 0 23rem;
+  /* aspect-ratio: 8 / 5;
+  width: 100%; */
+  box-shadow: 0 10px 15px -3px #9ca3af, 0 4px 6px -4px rgba(156, 163, 175, 1);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  /* padding: 1.25rem 1.75rem; */
+  padding: 5rem 1.25rem;
+  background: #5a8b4b;
+  transition-duration: 0.3s;
 }
 
 .pokemonCard:hover {
-    cursor: pointer;
-    transform: scale(1.05);
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .pokemonCard p {
-    margin: 0;
+  margin: 0;
 }
