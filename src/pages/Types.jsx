@@ -1,7 +1,5 @@
-import "./Types.css"
+import "./Types.css";
 
 export const Types = () => {
-    return (
-        <div>Types</div>
-    )
-}
+  return <main>Types</main>;
+};

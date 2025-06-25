@@ -1,8 +1,4 @@
-import "./NotFound.css"
+import "./NotFound.css";
 export const NotFound = () => {
-  return (
-    <>
-      NotFound
-    </>
-  )
-}
+  return <main>NotFound</main>;
+};

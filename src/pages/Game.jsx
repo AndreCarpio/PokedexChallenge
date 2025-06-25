@@ -1,10 +1,5 @@
-import "./Game.css"
+import "./Game.css";
 
 export const Game = () => {
-
-    return (
-        <>
-            game
-        </>
-    )
-}
+  return <main>game</main>;
+};

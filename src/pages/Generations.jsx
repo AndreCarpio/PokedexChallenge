@@ -1,6 +1,4 @@
-import "./Generations.css"
+import "./Generations.css";
 export const Generations = () => {
-    return (
-        <div>Generations</div>
-    )
-}
+  return <main>Generations</main>;
+};
