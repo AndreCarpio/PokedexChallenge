@@ -8,30 +8,28 @@ import { Types } from "./pages/Types";
 import { Generations } from "./pages/Generations";
 import { Header } from "./components/organisms/header";
 import { Footer } from "./components/organisms/Footer";
+import { MainLayout } from "./layouts/MainLayout";
 
 export const App = () => {
   return (
     <BrowserRouter>
-      <Header></Header>
       <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<h1>Home</h1>} />
 
-        <Route path="/game" element={<Game></Game>} />
+          <Route path="/game" element={<Game />} />
 
-        <Route path="/pokemonsList" element={<PokemonsList></PokemonsList>} />
+          <Route path="/pokemonsList" element={<PokemonsList />} />
 
-        <Route
-          path="/pokemonDescription"
-          element={<PokemonDescription></PokemonDescription>}
-        />
+          <Route path="/pokemonDescription" element={<PokemonDescription />} />
 
-        <Route path="/types" element={<Types></Types>} />
+          <Route path="/types" element={<Types />} />
 
-        <Route path="/generations" element={<Generations></Generations>} />
+          <Route path="/generations" element={<Generations />} />
 
-        <Route path="*" element={<NotFound></NotFound>} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
-      <Footer></Footer>
     </BrowserRouter>
   );
 };
