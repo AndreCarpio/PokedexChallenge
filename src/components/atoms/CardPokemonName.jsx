@@ -1,9 +1,8 @@
-import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLatter.js"
-import "./CardPokemonName.css"
+import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLatter.js";
+import "./CardPokemonName.css";
 
 export const CardPokemonName = ({ pokemonName }) => {
-
-    return (
-        <p className='cardPokemonName'>{capitalizeFirstLetter(pokemonName)}</p>
-    )
-}
+  return (
+    <p className="cardPokemonName">{capitalizeFirstLetter(pokemonName)}</p>
+  );
+};

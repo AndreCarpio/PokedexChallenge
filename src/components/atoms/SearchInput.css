@@ -1,34 +1,35 @@
 .searchInput {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .searchInput .icon {
-    position: absolute;
-    height: 40%;
-    top: 50%;
-    left: 0.75rem;
-    transform: translateY(-50%);
-    fill: #6B7280;
+  position: absolute;
+  height: 40%;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  fill: #6b7280;
 }
 
 .searchInput input {
-    background-color: #e5e7eb;
-    color: #5c5c5c;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.75rem 2.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(17, 24, 39, 0.3),
-        0 2px 4px -2px rgba(17, 24, 39, 0.3);
-    border: none;
+  background-color: #e5e7eb;
+  color: #5c5c5c;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgba(17, 24, 39, 0.3),
+    0 2px 4px -2px rgba(17, 24, 39, 0.3);
+  border: none;
 }
 
 .searchInput input::placeholder {
-    color: #6b7280;
+  color: #6b7280;
 }
 
 .searchInput input:focus {
-    outline: 0;
+  outline: 0;
 }

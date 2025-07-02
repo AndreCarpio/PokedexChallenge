@@ -3,7 +3,9 @@
   flex: 1 0 23rem;
   /* aspect-ratio: 8 / 5;
   width: 100%; */
-  box-shadow: 0 10px 15px -3px #9ca3af, 0 4px 6px -4px rgba(156, 163, 175, 1);
+  box-shadow:
+    0 10px 15px -3px #9ca3af,
+    0 4px 6px -4px rgba(156, 163, 175, 1);
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;

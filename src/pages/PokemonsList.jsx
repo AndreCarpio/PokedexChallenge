@@ -8,7 +8,7 @@ export const PokemonsList = () => {
   const [pokemons, setPokemons] = useState([]);
   const buttonLoadMore = useRef(null);
   const [currentPage, setCurrentPage] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+    "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0",
   );
   const nextPage = useRef(null);
 
@@ -30,7 +30,7 @@ export const PokemonsList = () => {
           image: details.sprites.other["official-artwork"].front_default,
           types: details.types.map((t) => t.type.name),
         };
-      })
+      }),
     );
     setPokemons((prev) => [...prev, ...pokemonsInfo]);
   };
@@ -42,7 +42,7 @@ export const PokemonsList = () => {
           setCurrentPage(nextPage.current);
         }
       },
-      { rootMargin: "300px" }
+      { rootMargin: "300px" },
     );
     observer.observe(buttonLoadMore.current);
     return () => {

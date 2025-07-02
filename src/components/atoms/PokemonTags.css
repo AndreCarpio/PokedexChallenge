@@ -1,21 +1,21 @@
 .tagCard {
-    font-size: 0.9rem;
-    color: white;
-    font-weight: 400;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.2rem;
-    display: flex;
-    flex-direction: row;
-    gap: 0.4rem;
-    justify-content: center;
-    align-items: center;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 400;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .tagCardImage {
-    height: 0.9rem;
+  height: 0.9rem;
 }
 
 .tagCardImage svg {
-    height: 100%;
-    fill: white;
+  height: 100%;
+  fill: white;
 }

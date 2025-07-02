@@ -1,6 +1,4 @@
-import "./PokemonDescription.css"
+import "./PokemonDescription.css";
 export const PokemonDescription = () => {
-    return (
-        <main>PokemonDescription</main>
-    )
-}
+  return <main>PokemonDescription</main>;
+};
