@@ -35,9 +35,5 @@
 
 body {
   font-family: "Roboto", sans-serif;
-}
-
-#root {
-  /* display: flex;
-  flex-direction: column; */
+  background-color: var(--bg-primary);
 }
