@@ -1,3 +1,32 @@
+:root {
+  --primary-color: #ea5d60;
+  --primary-color-hover: #d65456;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5dc;
+  --gray-400: #99a1af;
+  --gray-500: #6a7282;
+  --gray-600: #4a5565;
+  --gray-700: #364153; /*suggested only for text*/
+  --gray-800: #1e2939; /*suggested only for text*/
+  --gray-900: #101828; /*suggested only for text*/
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f2f5;
+  --box-shadow-default:
+    0 4px 6px -1px rgba(17, 24, 39, 0.3), 0 2px 4px -2px rgba(17, 24, 39, 0.3);
+  --box-shadow-soft:
+    0 4px 6px -1px #0000001a, 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --box-shadow-pokemon-card:
+    0 10px 15px -3px #9ca3af, 0 4px 6px -4px rgba(156, 163, 175, 1);
+  --danger-color: #e53935;
+  --success-color: #43a047;
+  --warning-color: #fb8c00;
+  --danger-color-hover: #b32e2a;
+  --success-color-hover: #357a38;
+  --warning-color-hover: #c47100;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

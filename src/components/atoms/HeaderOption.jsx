@@ -5,8 +5,7 @@ export const HeaderOption = ({ to, children }) => {
   const lotation = useLocation();
   return (
     <Link
-      className=" headerOption "
-      style={{ color: lotation.pathname === to ? "black" : "" }}
+      className={` headerOption  ${lotation.pathname === to && "active"}`}
       to={to}
     >
       {children}

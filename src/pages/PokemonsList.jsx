@@ -80,7 +80,7 @@ export const PokemonsList = () => {
           padding: "1rem",
         }}
       >
-        <Spinner color="#EA5D60"></Spinner>
+        <Spinner color="var(--primary-color)"></Spinner>
       </div>
 
       <button ref={buttonLoadMore} style={{ opacity: 0 }}>

@@ -1,0 +1,146 @@
+.defaultButton {
+  color: white;
+  background-color: var(--primary-color);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+}
+.defaultButton:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.defaultButton.primary {
+  background-color: var(--primary-color);
+}
+
+.defaultButton.secondary {
+  background-color: var(--gray-400);
+}
+
+.defaultButton.danger {
+  background-color: var(--danger-color);
+}
+
+.defaultButton.success {
+  background-color: var(--success-color);
+}
+
+.defaultButton.warning {
+  background-color: var(--warning-color);
+}
+
+/* xs — 0.75 rem font, 0.25 rem × 0.5 rem padding (4 px × 8 px) */
+.defaultButton.sizeXs {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* sm — 0.875 rem font, 0.375 rem × 0.75 rem padding (6 px × 12 px) */
+.defaultButton.sizeSm {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+}
+
+/* base — 1 rem font, 0.5 rem × 1 rem padding (8 px × 16 px) */
+.defaultButton.sizeBase {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+/* lg — 1.125 rem font, 0.75 rem × 1.25 rem padding (12 px × 20 px) */
+.defaultButton.sizeLg {
+  font-size: 1.125rem;
+  padding: 0.75rem 1.25rem;
+}
+
+/* xl — 1.25 rem font, 1 rem × 1.5 rem padding (16 px × 24 px) */
+.defaultButton.sizeXl {
+  font-size: 1.25rem;
+  padding: 1rem 1.5rem;
+}
+
+.defaultButton.roundedNone {
+  border-radius: 0;
+}
+
+/* 2 px */
+.defaultButton.roundedSm {
+  border-radius: 0.125rem;
+}
+
+/* 4 px */
+.defaultButton.rounded {
+  border-radius: 0.25rem;
+}
+
+/* 6 px */
+.defaultButton.roundedMd {
+  border-radius: 0.375rem;
+}
+
+/* 8 px */
+.defaultButton.roundedLg {
+  border-radius: 0.5rem;
+}
+
+/* 12 px */
+.defaultButton.roundedXl {
+  border-radius: 0.75rem;
+}
+
+/* 16 px */
+.defaultButton.rounded2xl {
+  border-radius: 1rem;
+}
+
+/* 24 px */
+.defaultButton.rounded3xl {
+  border-radius: 1.5rem;
+}
+
+/* full rounded */
+.defaultButton.roundedFull {
+  border-radius: 9999px;
+}
+
+/* font-light (300) */
+.defaultButton.fontLight {
+  font-weight: 300;
+}
+
+/* font-medium (500) */
+.defaultButton.fontMedium {
+  font-weight: 500;
+}
+
+/* font-semibold (600) */
+.defaultButton.fontSemibold {
+  font-weight: 600;
+}
+
+/* font-bold (700) */
+.defaultButton.fontBold {
+  font-weight: 700;
+}
+
+.defaultButton.primary:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.defaultButton.success:hover {
+  background-color: var(--success-color-hover);
+}
+
+.defaultButton.danger:hover {
+  background-color: var(--danger-color-hover);
+}
+
+.defaultButton.danger:hover {
+  background-color: var(--danger-color-hover);
+}
+.defaultButton.warning:hover {
+  background-color: var(--warning-color-hover);
+}

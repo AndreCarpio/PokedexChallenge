@@ -1,9 +1,13 @@
 .headerOption {
   font-weight: 600;
-  color: #99a1af;
+  color: var(--gray-400);
   text-decoration: none;
 }
 
 .headerOption:hover {
-  color: black;
+  color: var(--gray-900);
+}
+
+.headerOption.active {
+  color: var(--gray-900);
 }
