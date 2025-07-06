@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
-import "./Game.css";
 import { DefaultButton } from "../components/atoms/DefaultButton";
 import { shuffleArrary } from "../utils/shuffleArray";
+import { useState } from "react";
+import { GameStatusBar } from "../components/molecules/GameStatusBar";
+import "./Game.css";
 
 export const Game = () => {
   const [game, setGame] = useState({
-    state: false,
-    gameOver: false,
+    start: true,
     score: 0,
     options: [],
     successfulChoices: [],
     correctOption: 0,
+    lives: 0,
   });
 
   async function startGame() {
@@ -35,24 +36,22 @@ export const Game = () => {
   }
 
   return (
-    <div>
-      <div>
-        <p>Who's That Pokémon?</p>
-        {game.state && (
-          <>
-            <p>Score</p>
-            <div>
-              <img src="" alt="" />
-            </div>
-          </>
-        )}
-        {!game.state && (
-          <>
-            <DefaultButton onCLick={getPokemons}>Start</DefaultButton>
-          </>
-        )}
-      </div>
-      <div></div>
+    <div className="gameContainer">
+      <h1 className="titleGame">Who's That Pokémon?</h1>
+      {game.start && (
+        <>
+          <GameStatusBar lives={game.lives} score={game.score} />
+        </>
+      )}
+      {!game.start && (
+        <>
+          <div>
+            <p>Final Score</p>
+            <p>{game.score}</p>
+          </div>
+          <DefaultButton onCLick={getPokemons}>Restart</DefaultButton>
+        </>
+      )}
     </div>
   );
 };
