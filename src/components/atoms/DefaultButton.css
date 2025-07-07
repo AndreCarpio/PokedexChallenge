@@ -32,6 +32,10 @@
   background-color: var(--warning-color);
 }
 
+.defaultButton.disable {
+  background-color: var(--gray-400);
+}
+
 /* xs — 0.75 rem font, 0.25 rem × 0.5 rem padding (4 px × 8 px) */
 .defaultButton.sizeXs {
   font-size: 0.75rem;

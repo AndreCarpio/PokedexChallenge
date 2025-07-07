@@ -1,0 +1,13 @@
+.gameResultMessage {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.gameResultMessage.correct {
+  color: var(--success-color);
+}
+
+.gameResultMessage.incorrect {
+  color: var(--danger-color);
+}

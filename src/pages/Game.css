@@ -10,6 +10,24 @@
   width: 80rem;
   max-width: 100%;
   min-height: 100%;
-  margin: 4rem auto;
+  margin: auto;
   gap: 1.5rem;
+}
+
+.gamePokemonImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  margin: 0 auto;
+}
+
+.gamePokemonImage img {
+  height: 100%;
+  filter: brightness(0);
+}
+
+.gamePokemonImage img.visible {
+  transition: all 600ms linear;
+  filter: brightness(1);
 }
