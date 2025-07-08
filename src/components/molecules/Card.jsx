@@ -44,16 +44,19 @@ export const Card = ({
       <img
         src={dottedPattern}
         style={{ position: "absolute", top: "2.1rem", height: "18%" }}
+        alt="dottedPattern background"
       />
 
       <img
         src={pokeballBackground}
         style={{ position: "absolute", top: 0, right: 0, height: "100%" }}
+        alt="pokeball background"
       />
 
       <img
         src={imageURL}
         style={{ position: "absolute", height: "80%", right: "-3rem" }}
+        alt="pokemon image"
       />
     </div>
   );
