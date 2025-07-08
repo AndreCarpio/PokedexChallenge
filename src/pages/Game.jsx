@@ -6,10 +6,11 @@ import { GameAnswerOptions } from "../components/molecules/GameAnswerOptions";
 import "./Game.css";
 import { GameResultMessage } from "../components/molecules/GameResultMessage";
 import { Spinner } from "../components/atoms/Spinner";
+import { FinalScoreMessage } from "../components/molecules/FinalScoreMessage";
 
 export const Game = () => {
   const [game, setGame] = useState({
-    start: true,
+    state: true,
     score: 0,
     pokemons: [],
     options: [],
@@ -33,7 +34,7 @@ export const Game = () => {
     options = shuffleArrary(options);
 
     setGame({
-      start: true,
+      state: true,
       score: 0,
       pokemons: newPokemonList,
       options: options,
@@ -115,8 +116,15 @@ export const Game = () => {
     } else {
       newLives--;
     }
+
+    let newState = game.state;
+    if (newLives <= 0) {
+      newState = false;
+    }
+
     setGame((prev) => ({
       ...prev,
+      state: newState,
       selectedOption: option,
       score: newScore,
       lives: newLives,
@@ -127,7 +135,7 @@ export const Game = () => {
     <div className="gameContainer">
       <h1 className="titleGame">Who's That Pokémon?</h1>
 
-      {game.start && (
+      {game.state && (
         <>
           <GameStatusBar lives={game.lives} score={game.score} />
           <GameResultMessage
@@ -168,14 +176,8 @@ export const Game = () => {
         </>
       )}
 
-      {!game.start && (
-        <>
-          <div>
-            <p>Final Score</p>
-            <p>{game.score}</p>
-          </div>
-          <DefaultButton onCLick={getPokemons}>Restart</DefaultButton>
-        </>
+      {!game.state && (
+        <FinalScoreMessage restart={startGame} score={game.score} />
       )}
     </div>
   );
