@@ -9,6 +9,7 @@ import { Generations } from "./pages/Generations";
 import { Header } from "./components/organisms/header";
 import { Footer } from "./components/organisms/Footer";
 import { MainLayout } from "./layouts/MainLayout";
+import { ButtonGallery } from "./pages/ButtonGallery";
 
 export const App = () => {
   return (
@@ -26,6 +27,8 @@ export const App = () => {
           <Route path="/types" element={<Types />} />
 
           <Route path="/generations" element={<Generations />} />
+
+          <Route path="/buttonGallery" element={<ButtonGallery />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

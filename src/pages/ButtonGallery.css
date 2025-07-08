@@ -1,0 +1,28 @@
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.galleryContainer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.messageClasesCopied {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: var(--gray-200);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--gray-300);
+  gap: 1rem;
+}
+
+.messageClasesCopied .label {
+  font-weight: bold;
+  color: var(--success-color);
+}
