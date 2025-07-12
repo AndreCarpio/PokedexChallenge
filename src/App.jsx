@@ -6,8 +6,6 @@ import { PokemonsList } from "./pages/PokemonsList";
 import { PokemonDescription } from "./pages/PokemonDescription";
 import { Types } from "./pages/Types";
 import { Generations } from "./pages/Generations";
-import { Header } from "./components/organisms/header";
-import { Footer } from "./components/organisms/Footer";
 import { MainLayout } from "./layouts/MainLayout";
 import { ButtonGallery } from "./pages/ButtonGallery";
 

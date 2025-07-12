@@ -1,0 +1,12 @@
+.options {
+  display: flex;
+  gap: 1.75rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: var(--gray-700);
+}
+
+.mobileVersion .options {
+  flex-direction: column;
+  gap: 0;
+}

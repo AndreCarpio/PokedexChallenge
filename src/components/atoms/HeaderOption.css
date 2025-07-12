@@ -1,13 +1,36 @@
 .headerOption {
   font-weight: 600;
-  color: var(--gray-400);
+  color: var(--gray-900);
   text-decoration: none;
+  padding: 0.1rem 0.4rem;
+  text-align: center;
+  transition: all 200ms linear;
+  border-bottom: 0.2rem solid transparent;
 }
 
 .headerOption:hover {
-  color: var(--gray-900);
+  color: var(--primary-color);
+  border-bottom: 0.2rem solid var(--primary-color);
 }
 
 .headerOption.active {
+  color: var(--primary-color);
+  border-bottom: 0.2rem solid var(--primary-color);
+}
+
+.mobileVersion .headerOption {
+  padding: 1rem 0.2rem 1rem 1.7rem;
+  text-align: start;
+  border: none;
+  transition: none;
+}
+
+.mobileVersion .headerOption:hover {
+  background-color: var(--gray-100);
   color: var(--gray-900);
+}
+
+.mobileVersion .headerOption.active {
+  color: var(--white-color);
+  background-color: var(--primary-color);
 }

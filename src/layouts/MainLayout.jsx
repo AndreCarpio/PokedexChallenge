@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import { Footer } from "../components/organisms/Footer";
-import { Header } from "../components/organisms/header";
+import { Header } from "../components/organisms/Header";
 import "./MainLayout.css";
 
 export const MainLayout = () => {

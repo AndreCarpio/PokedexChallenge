@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  text-decoration: none;
 }
 
 .branding {
@@ -9,11 +10,12 @@
 }
 
 .branding .logo {
-  height: 2.5rem;
+  height: 2.1rem;
 }
 
 .branding .name {
-  font-size: 1.875rem;
+  font-size: 1.8rem;
   line-height: 2.25rem;
   font-weight: 700;
+  color: var(--gray-900);
 }

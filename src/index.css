@@ -1,6 +1,7 @@
 :root {
   --primary-color: #ea5d60;
   --primary-color-hover: #d65456;
+  --white-color: #ffffff;
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
@@ -25,6 +26,18 @@
   --danger-color-hover: #b32e2a;
   --success-color-hover: #357a38;
   --warning-color-hover: #c47100;
+
+  --overlay-white-bg: rgba(233, 234, 242, 0.5);
+
+  /*
+  Breakpoints 
+  screen-xs: 480px;
+  screen-sm: 640px;
+  screen-md: 768px;
+  screen-lg: 1024px;
+  screen-xl: 1280px;
+  screen-2xl: 1536px; 
+  */
 }
 
 * {
