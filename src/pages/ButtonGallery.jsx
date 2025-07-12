@@ -47,22 +47,22 @@ export const ButtonGallery = () => {
     <div className="galleryContainer">
       <h2>Button Variants</h2>
       <div className="button-row">
-        {buttonVariants.map((v) => renderButton(v, `defaultButton ${v}`))}
+        {buttonVariants.map((v) => renderButton(v, ` ${v}`))}
       </div>
 
       <h2>Sizes</h2>
       <div className="button-row">
-        {sizes.map((s) => renderButton(s, `defaultButton primary ${s}`))}
+        {sizes.map((s) => renderButton(s, `${s}`))}
       </div>
 
       <h2>Rounded</h2>
       <div className="button-row">
-        {roundings.map((r) => renderButton(r, `defaultButton primary ${r}`))}
+        {roundings.map((r) => renderButton(r, `${r}`))}
       </div>
 
       <h2>Font Weights</h2>
       <div className="button-row">
-        {fonts.map((f) => renderButton(f, `defaultButton primary ${f}`))}
+        {fonts.map((f) => renderButton(f, `${f}`))}
       </div>
       {copied && (
         <div className="messageClasesCopied">
