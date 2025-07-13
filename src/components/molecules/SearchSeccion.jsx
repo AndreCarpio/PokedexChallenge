@@ -5,11 +5,11 @@ import { SearchInput } from "../atoms/SearchInput";
 export const SearchSeccion = () => {
   return (
     <div className="searchSeccion ">
-      <div className="" style={{ minWidth: "50%" }}>
+      <div className="containerInput" style={{ minWidth: "50%" }}>
         <SearchInput></SearchInput>
       </div>
 
-      <p style={{ color: "white", fontSize: "1.2rem" }}>
+      <p style={{ color: "white", fontSize: "1.2rem", textAlign: "center" }}>
         Search for Pokémon by name or using the National Pokédex number.
       </p>
       <img

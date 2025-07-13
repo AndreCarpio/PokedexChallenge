@@ -8,11 +8,15 @@
   padding-bottom: 2.5rem;
   position: relative;
 }
-
+.containerInput {
+  width: 65%;
+  max-width: 95%;
+}
 .backgroundPattern {
   position: absolute;
   top: 50%;
   height: 50%;
+  pointer-events: none;
 }
 
 .backgroundPattern.left {
