@@ -5,7 +5,10 @@ import SOUTH_KOREA from "../../assets/countryFlags/southKorea.svg";
 import { CheckIcon } from "../atoms/icons/CheckIcon";
 import "./GameLaguagesBar.css";
 
-export const GameLaguagesBar = ({ languageSelected = "" }) => {
+export const GameLaguagesBar = ({
+  languageSelected = "",
+  changeLanguage = () => {},
+}) => {
   const LANGUAGES = [
     { name: "english", code: "en", image: USA },
     { name: "spanish", code: "es", image: SPAIN },
@@ -18,12 +21,18 @@ export const GameLaguagesBar = ({ languageSelected = "" }) => {
       <p className="label">Select a language</p>
 
       <div className="containerFlags">
-        {LANGUAGES.map((flag, index) => {
+        {LANGUAGES.map((language, index) => {
           return (
-            <div key={index} className="flag">
-              <img src={flag.image} alt="flag image" />
+            <div
+              key={index}
+              className="flag"
+              onClick={() => {
+                changeLanguage(language.code);
+              }}
+            >
+              <img src={language.image} alt="flag image" />
               <span
-                className={`checkIcon ${languageSelected === flag.name ? "active" : ""}`}
+                className={`checkIcon ${languageSelected === language.code ? "active" : ""}`}
               >
                 <CheckIcon size="1.2rem" fill="var(--white-color)" />
               </span>

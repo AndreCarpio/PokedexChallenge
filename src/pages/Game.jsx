@@ -11,11 +11,19 @@ import "./Game.css";
 import { GameLaguagesBar } from "../components/molecules/GameLaguagesBar";
 
 export const Game = () => {
+  const LANGUAGES = [
+    { name: "english", code: "en" },
+    { name: "spanish", code: "es" },
+    { name: "japanese", code: "ja" },
+    { name: "korean", code: "ko" },
+  ];
+
   const [fethPokemons, setFetchPokemons] = useState([]);
   const [loadingImage, setLoadingImage] = useState(false);
   const [showNextPokemonBtn, setShowNextPokemonBtn] = useState(false);
   const [counter, setCounter] = useState(5);
   const intervalId = useRef(null);
+  const [selectedLanguage, setSelectedLanguge] = useState(LANGUAGES[0].code);
   const [game, setGame] = useState({
     state: true,
     score: 0,
@@ -38,6 +46,10 @@ export const Game = () => {
       nextPokemon();
     }
   }, [counter]);
+
+  function changeLanguage(code) {
+    setSelectedLanguge(code);
+  }
 
   function startCounter() {
     if (intervalId.current == null) {
@@ -72,7 +84,10 @@ export const Game = () => {
       answer: i === 0,
     }));
 
+    options = await getNames(options);
+
     let correctOptionInfo = await getPokemonInfo(options[0].url);
+    correctOptionInfo = { ...correctOptionInfo, names: options[0].names };
     options = shuffleArrary(options);
 
     setGame({
@@ -114,7 +129,10 @@ export const Game = () => {
       return;
     }
 
+    newOptions = await getNames(newOptions);
+
     let correctOptionInfo = await getPokemonInfo(newOptions[0].url);
+    correctOptionInfo = { ...correctOptionInfo, names: newOptions[0].names };
     newOptions = shuffleArrary(newOptions);
 
     setGame((prev) => ({
@@ -188,9 +206,38 @@ export const Game = () => {
     }
   }
 
+  async function getNames(list = []) {
+    let res = await Promise.all(
+      list.map(async (option) => {
+        const id = option.url.split("/").filter(Boolean).pop();
+        const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${id}/`;
+
+        try {
+          const response = await fetch(speciesUrl);
+          const data = await response.json();
+
+          return {
+            ...option,
+            names: data.names.map((element) => ({
+              code: element.language.name,
+              name: element.name,
+            })),
+          };
+        } catch (error) {
+          console.error(`Error fetching species for ${option.name}`, error);
+          return option;
+        }
+      }),
+    );
+    return res;
+  }
+
   return (
     <>
-      <GameLaguagesBar></GameLaguagesBar>
+      <GameLaguagesBar
+        languageSelected={selectedLanguage}
+        changeLanguage={changeLanguage}
+      ></GameLaguagesBar>
       <div className="gameContainer">
         <h1 className="titleGame">Who's That Pokémon?</h1>
 
@@ -198,6 +245,7 @@ export const Game = () => {
         <GameResultMessage
           correctOptionInfo={game.correctOptionInfo}
           selectedOption={game.selectedOption}
+          languageCode={selectedLanguage}
         />
         <div className="gamePokemonImage">
           {!loadingImage && game.correctOptionInfo && (
@@ -245,6 +293,7 @@ export const Game = () => {
           onClick={selectOption}
           correctOptionInfo={game.correctOptionInfo}
           selectedOption={game.selectedOption}
+          languageCode={selectedLanguage}
         />
       </div>
     </>

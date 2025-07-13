@@ -6,6 +6,7 @@ export const GameAnswerOptions = ({
   options = [],
   selectedOption,
   onClick,
+  languageCode,
 }) => {
   function getOptionButtonClass(option, selectedOption) {
     if (!selectedOption) return "";
@@ -13,6 +14,16 @@ export const GameAnswerOptions = ({
       return option.answer ? "success" : "danger";
     }
     return "disable";
+  }
+
+  function getCorrectName(option) {
+    let name = option.names.find((language) => {
+      return language.code == languageCode;
+    });
+    if (name) {
+      return name.name;
+    }
+    return option.name;
   }
   return (
     <div className="gamePokemonOptions">
@@ -25,7 +36,7 @@ export const GameAnswerOptions = ({
               onClick(option);
             }}
           >
-            {capitalizeFirstLetter(option.name)}
+            {capitalizeFirstLetter(getCorrectName(option))}
           </DefaultButton>
         );
       })}
