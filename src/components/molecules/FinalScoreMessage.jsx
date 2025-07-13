@@ -9,7 +9,7 @@ export const FinalScoreMessage = ({ score = 0, restart = () => {} }) => {
         <p className="score">{score}</p>
       </div>
       <div>
-        <DefaultButton className="sizeLg" onCLick={restart}>
+        <DefaultButton className="sizeLg roundedLg" onCLick={restart}>
           Restart
         </DefaultButton>
       </div>
