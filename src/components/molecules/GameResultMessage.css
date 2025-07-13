@@ -1,3 +1,7 @@
+.containerResultMessage {
+  min-height: 1.7rem;
+  max-height: 1.7rem;
+}
 .gameResultMessage {
   text-align: center;
   font-size: 1.6rem;

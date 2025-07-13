@@ -3,7 +3,7 @@ import "./GameResultMessage.css";
 
 export const GameResultMessage = ({ selectedOption, correctOptionInfo }) => {
   return (
-    <>
+    <div className="containerResultMessage">
       {selectedOption && (
         <>
           {selectedOption.name === correctOptionInfo.name ? (
@@ -15,6 +15,6 @@ export const GameResultMessage = ({ selectedOption, correctOptionInfo }) => {
           )}
         </>
       )}
-    </>
+    </div>
   );
 };
