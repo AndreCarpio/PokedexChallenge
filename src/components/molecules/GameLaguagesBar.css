@@ -1,0 +1,64 @@
+.languageBar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: 1rem 1.5rem;
+  gap: 2rem;
+}
+
+.languageBar .label {
+  color: var(--white-color);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.containerFlags {
+  display: flex;
+  gap: 1rem;
+}
+
+.languageBar .flag {
+  height: 3.2rem;
+  position: relative;
+  cursor: pointer;
+}
+.languageBar .flag:hover {
+  outline: 2px solid var(--success-color);
+}
+
+.languageBar .flag img {
+  height: 100%;
+}
+.languageBar .flag .checkIcon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--success-color);
+  right: 0rem;
+  bottom: 0rem;
+  opacity: 0;
+}
+
+.languageBar .flag .checkIcon.active {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .languageBar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    justify-content: center;
+  }
+  .containerFlags {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .languageBar .label {
+    text-align: center;
+  }
+  .languageBar .flag {
+    height: 2.5rem;
+  }
+}

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const MenuIcon = ({
   size = "1.5rem",
   fill = "currentColor",

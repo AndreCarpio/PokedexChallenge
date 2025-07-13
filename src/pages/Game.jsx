@@ -8,6 +8,7 @@ import { Spinner } from "../components/atoms/Spinner";
 import { FinalScoreMessage } from "../components/molecules/FinalScoreMessage";
 import { NextIcon } from "../components/atoms/icons/nextIcon";
 import "./Game.css";
+import { GameLaguagesBar } from "../components/molecules/GameLaguagesBar";
 
 export const Game = () => {
   const [fethPokemons, setFetchPokemons] = useState([]);
@@ -188,61 +189,64 @@ export const Game = () => {
   }
 
   return (
-    <div className="gameContainer">
-      <h1 className="titleGame">Who's That Pokémon?</h1>
+    <>
+      <GameLaguagesBar></GameLaguagesBar>
+      <div className="gameContainer">
+        <h1 className="titleGame">Who's That Pokémon?</h1>
 
-      <GameStatusBar lives={game.lives} score={game.score} />
-      <GameResultMessage
-        correctOptionInfo={game.correctOptionInfo}
-        selectedOption={game.selectedOption}
-      />
-      <div className="gamePokemonImage">
-        {!loadingImage && game.correctOptionInfo && (
-          <img
-            src={
-              game.correctOptionInfo?.sprites?.other?.["official-artwork"]
-                ?.front_default
-            }
-            alt="pokemon image"
-            className={game.selectedOption && "visible"}
-          />
-        )}
-        {loadingImage && (
-          <div style={{ height: "3rem" }}>
-            <Spinner borderWidth="4px" color="var(--primary-color)"></Spinner>
-          </div>
-        )}
-        {!game.state && (
-          <FinalScoreMessage restart={startGame} score={game.score} />
-        )}
+        <GameStatusBar lives={game.lives} score={game.score} />
+        <GameResultMessage
+          correctOptionInfo={game.correctOptionInfo}
+          selectedOption={game.selectedOption}
+        />
+        <div className="gamePokemonImage">
+          {!loadingImage && game.correctOptionInfo && (
+            <img
+              src={
+                game.correctOptionInfo?.sprites?.other?.["official-artwork"]
+                  ?.front_default
+              }
+              alt="pokemon image"
+              className={game.selectedOption && "visible"}
+            />
+          )}
+          {loadingImage && (
+            <div style={{ height: "3rem" }}>
+              <Spinner borderWidth="4px" color="var(--primary-color)"></Spinner>
+            </div>
+          )}
+          {!game.state && (
+            <FinalScoreMessage restart={startGame} score={game.score} />
+          )}
+        </div>
+        <div
+          style={{
+            height: "2rem",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          {showNextPokemonBtn && (
+            <button
+              className="nextPokemonBtn"
+              onClick={() => {
+                stopCounter();
+                nextPokemon();
+              }}
+            >
+              <p className="counter">{counter}</p>
+              <p>Next Pokemon</p>
+              <NextIcon size="1.2rem"></NextIcon>
+            </button>
+          )}
+        </div>
+        <GameAnswerOptions
+          options={game.options}
+          onClick={selectOption}
+          correctOptionInfo={game.correctOptionInfo}
+          selectedOption={game.selectedOption}
+        />
       </div>
-      <div
-        style={{
-          height: "2rem",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        {showNextPokemonBtn && (
-          <button
-            className="nextPokemonBtn"
-            onClick={() => {
-              stopCounter();
-              nextPokemon();
-            }}
-          >
-            <p className="counter">{counter}</p>
-            <p>Next Pokemon</p>
-            <NextIcon size="1.2rem"></NextIcon>
-          </button>
-        )}
-      </div>
-      <GameAnswerOptions
-        options={game.options}
-        onClick={selectOption}
-        correctOptionInfo={game.correctOptionInfo}
-        selectedOption={game.selectedOption}
-      />
-    </div>
+    </>
   );
 };
