@@ -55,7 +55,7 @@
   z-index: 1000;
   top: 0px;
   left: 0;
-  background: var(--overlay-white-bg);
+  background: var(--overlay-white-bg-50);
   backdrop-filter: blur(5px);
   inset: 0;
   flex-direction: column;

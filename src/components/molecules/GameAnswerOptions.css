@@ -1,11 +1,11 @@
 .gamePokemonOptions {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-rows: auto;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 1rem;
 }
 
 .gamePokemonOptions button {
-  width: 18rem;
   max-width: 100%;
 }

@@ -1,5 +1,6 @@
 :root {
   --primary-color: #ea5d60;
+  --primary-color-20: rgba(234, 93, 95, 0.2);
   --primary-color-hover: #d65456;
   --white-color: #ffffff;
   --gray-50: #f9fafb;
@@ -15,7 +16,7 @@
   --bg-primary: #ffffff;
   --bg-secondary: #f0f2f5;
   --box-shadow-default:
-    0 4px 6px -1px rgba(17, 24, 39, 0.3), 0 2px 4px -2px rgba(17, 24, 39, 0.3);
+    0 0px 6px -1px rgba(17, 24, 39, 0.3), 0 2px 4px -2px rgba(17, 24, 39, 0.3);
   --box-shadow-soft:
     0 4px 6px -1px #0000001a, 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --box-shadow-pokemon-card:
@@ -28,6 +29,9 @@
   --warning-color-hover: #c47100;
 
   --overlay-white-bg: rgba(233, 234, 242, 0.5);
+  --overlay-white-bg-70: rgba(233, 234, 242, 0.7);
+  --overlay-white-bg-80: rgba(233, 234, 242, 0.8);
+  --overlay-white-bg-90: rgba(233, 234, 242, 0.9);
 
   /*
   Breakpoints 
