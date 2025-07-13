@@ -1,6 +1,6 @@
 .pokemonCard {
   margin: auto;
-  flex: 1 0 23rem;
+  flex: 1 0 20rem;
   /* aspect-ratio: 8 / 5;
   width: 100%; */
   box-shadow: var(--box-shadow-pokemon-card);
@@ -14,6 +14,7 @@
   padding: 5rem 1.25rem;
   background: #5a8b4b;
   transition-duration: 0.3s;
+  max-width: 100%;
 }
 
 .pokemonCard:hover {
@@ -23,4 +24,10 @@
 
 .pokemonCard p {
   margin: 0;
+}
+
+@media (max-width: 640px) {
+  .pokemonCard {
+    padding: 2.5rem 1.25rem;
+  }
 }

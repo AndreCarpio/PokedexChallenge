@@ -7,4 +7,6 @@
   grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr)); */
   gap: 4.5rem;
   padding: 4rem;
+  margin: 0 auto;
+  overflow: hidden;
 }
