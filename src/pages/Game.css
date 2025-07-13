@@ -16,9 +16,11 @@
 
 .gamePokemonImage {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
-  height: 20rem;
+  min-height: 20rem;
+  max-height: 20rem;
   margin: 0 auto;
 }
 
@@ -30,4 +32,28 @@
 .gamePokemonImage img.visible {
   transition: all 600ms linear;
   filter: brightness(1);
+}
+
+.nextPokemonBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+}
+
+.nextPokemonBtn:hover {
+  background-color: var(--primary-color-20);
+}
+
+.nextPokemonBtn .counter {
+  color: var(--primary-color);
 }
