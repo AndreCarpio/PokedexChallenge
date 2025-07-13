@@ -1,6 +1,6 @@
 import "./SearchInput.css";
 
-export const SearchInput = () => {
+export const SearchInput = ({ ...props }) => {
   return (
     <div className="searchInput">
       <svg className="icon" viewBox="0 0 21 20">
@@ -15,6 +15,7 @@ export const SearchInput = () => {
         spellCheck="false"
         placeholder="What Pokémon are you looking for?"
         className=""
+        {...props}
       />
     </div>
   );

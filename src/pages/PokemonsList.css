@@ -10,3 +10,14 @@
   margin: 0 auto;
   overflow: hidden;
 }
+
+.messagePokemonNoFound {
+  padding: 1.5rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.7rem;
+  border: 1px solid var(--gray-300);
+  background-color: var(--bg-secondary);
+  width: 50rem;
+  max-width: 90%;
+  margin: 3rem auto;
+}
