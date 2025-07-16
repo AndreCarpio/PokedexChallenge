@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router";
 import "./App.css";
 import { Game } from "./pages/Game";
 import { NotFound } from "./pages/NotFound";
@@ -10,17 +16,34 @@ import { MainLayout } from "./layouts/MainLayout";
 import { ButtonGallery } from "./pages/ButtonGallery";
 
 export const App = () => {
-  return (
-    <BrowserRouter>
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        { index: true, element: <h1>Home</h1> },
+        { path: "game", element: <Game /> },
+        { path: "pokemons", element: <PokemonsList /> },
+        { path: "pokemons/:pokemonId", element: <PokemonDescription /> },
+        { path: "types", element: <Types /> },
+        { path: "generations", element: <Generations /> },
+        { path: "buttonGallery", element: <ButtonGallery /> },
+        { path: "*", element: <NotFound /> },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
+  /* <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<h1>Home</h1>} />
 
           <Route path="/game" element={<Game />} />
 
-          <Route path="/pokemonsList" element={<PokemonsList />} />
+          <Route path="/pokemons" element={<PokemonsList />} />
 
-          <Route path="/pokemonDescription" element={<PokemonDescription />} />
+          <Route path="/pokemons/:pokemonId" element={<PokemonDescription />} />
 
           <Route path="/types" element={<Types />} />
 
@@ -31,6 +54,5 @@ export const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </BrowserRouter>
-  );
+    </BrowserRouter> */
 };
