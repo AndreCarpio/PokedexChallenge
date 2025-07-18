@@ -5,6 +5,7 @@ import { PokemonTags } from "../atoms/PokemonTags";
 import dottedPattern from "../../assets/pokemonCardImages/dottedPattern.png";
 import pokeballBackground from "../../assets/pokemonCardImages/pokeballBackground.png";
 import "./Card.css";
+import { Link } from "react-router";
 
 export const Card = ({
   pokemonName = "Sin Nombre",
@@ -13,7 +14,8 @@ export const Card = ({
   types = [],
 }) => {
   return (
-    <div
+    <Link
+      to={"./id"}
       className="pokemonCard"
       style={{ backgroundColor: getTypeColor(types[0]) }}
     >
@@ -58,6 +60,6 @@ export const Card = ({
         style={{ position: "absolute", height: "80%", right: "-3rem" }}
         alt="pokemon image"
       />
-    </div>
+    </Link>
   );
 };
