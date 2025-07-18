@@ -18,9 +18,9 @@ export const App = () => {
 
           <Route path="/game" element={<Game />} />
 
-          <Route path="/pokemonsList" element={<PokemonsList />} />
+          <Route path="/pokemons" element={<PokemonsList />} />
 
-          <Route path="/pokemonDescription" element={<PokemonDescription />} />
+          <Route path="/pokemons/:pokemonId" element={<PokemonDescription />} />
 
           <Route path="/types" element={<Types />} />
 
