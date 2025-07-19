@@ -7,7 +7,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -23,7 +25,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -39,7 +43,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -54,7 +60,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -70,7 +78,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -86,7 +96,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -117,7 +129,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -133,7 +147,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -149,7 +165,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -165,7 +183,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -195,7 +215,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -211,7 +233,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -226,7 +250,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -266,7 +292,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -282,7 +310,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -298,7 +328,9 @@ export function TypeIcon({ type }) {
       res = (
         <svg
           viewBox="0 0 512 512"
-          fill="none"
+          height="1.5rem"
+          width="1.5rem"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
