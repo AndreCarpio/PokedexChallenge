@@ -12,10 +12,11 @@ export const Card = ({
   pokemonNumber = "#000",
   imageURL = "",
   types = [],
+  id = "1",
 }) => {
   return (
     <Link
-      to={"./id"}
+      to={`/pokemons/${id}`}
       className="pokemonCard"
       style={{ backgroundColor: getTypeColor(types[0]) }}
     >

@@ -71,6 +71,7 @@ export const PokemonsList = () => {
           name: details.name,
           image: details.sprites.other["official-artwork"].front_default,
           types: details.types.map((t) => t.type.name),
+          id: details.id,
         };
       }),
     );
@@ -116,6 +117,7 @@ export const PokemonsList = () => {
                   pokemonNumber={index + 1}
                   imageURL={pokemon.image}
                   types={pokemon.types}
+                  id={pokemon.id}
                 ></Card>
               );
             })}
@@ -147,6 +149,7 @@ export const PokemonsList = () => {
                   pokemonNumber={pokemonSearch.id}
                   imageURL={pokemonSearch.image}
                   types={pokemonSearch.types}
+                  id={pokemonSearch.id}
                 ></Card>
               </div>
             </>

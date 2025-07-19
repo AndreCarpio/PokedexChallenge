@@ -1,12 +1,28 @@
+import { useParams } from "react-router";
 import { DefaultButton } from "../components/atoms/DefaultButton";
 import { ArrowbackIcon } from "../components/atoms/icons/ArrowbackIcon";
 import { PokemonTags } from "../components/atoms/PokemonTags";
 import { TypeIcon } from "../components/atoms/TypeIcon";
+import { usePokemon } from "../hooks/usePokemon";
 import { formatToHashNumber } from "../utils/formatToHashNumber";
+import { Spinner } from "../components/atoms/Spinner";
 import "./PokemonDescription.css";
+
 export const PokemonDescription = () => {
+  const { pokemonId } = useParams();
+  const { pokemon, setPokemon, loading, error } = usePokemon(pokemonId);
+
   return (
     <main>
+      {loading ? (
+        <div style={{ height: "2rem" }}>
+          <Spinner color="var(--primary-color)" />
+        </div>
+      ) : (
+        <p>fetch data</p>
+      )}
+
+      {error && <p>Error getting data</p>}
       <div className="containerInfo">
         <ArrowbackIcon />
         <p> {formatToHashNumber("1")}</p>
