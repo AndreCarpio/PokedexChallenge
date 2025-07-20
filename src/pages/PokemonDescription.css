@@ -1,5 +1,6 @@
 .pokemonDescriptionContainer {
   display: flex;
+  height: calc(100dvh - 4.5rem);
 }
 
 .containerInfo {
@@ -12,8 +13,24 @@
   font-size: 1rem;
 }
 
+.btnGoBack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  aspect-ratio: 1/1;
+  border: none;
+  background-color: var(--gray-100);
+}
+
+.btnGoBack:hover {
+  background-color: var(--gray-200);
+}
 .pokemonNumber {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: bold;
   color: var(--gray-800);
 }
@@ -66,6 +83,9 @@
   padding: 1rem;
   border-radius: 0.5rem;
   gap: 1rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-500) transparent;
 }
 
 .pokedexData {
@@ -201,4 +221,37 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  position: relative;
+  justify-content: end;
+  padding: 2rem 0;
+}
+
+.containerPokemon .bgPokeball {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.containerPokemon .bgDots {
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  top: 7%;
+  transform: translateX(-50%);
+}
+
+.containerPokemon .pokemonImage {
+  position: absolute;
+  height: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-30%);
+}
+
+.containerPokemon .btnSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
 }

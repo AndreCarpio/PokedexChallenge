@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { DefaultButton } from "../components/atoms/DefaultButton";
 import { ArrowbackIcon } from "../components/atoms/icons/ArrowbackIcon";
 import { PokemonTags } from "../components/atoms/PokemonTags";
@@ -7,15 +7,27 @@ import { usePokemon } from "../hooks/usePokemon";
 import { formatToHashNumber } from "../utils/formatToHashNumber";
 import { Spinner } from "../components/atoms/Spinner";
 import "./PokemonDescription.css";
+import { getTypeColor } from "../utils/getTypeColor";
+import BackgroundDots from "../assets/pokemonDetails/backgroundDots.svg";
+import BackgroundPokeball from "../assets/pokemonDetails/backgroundPokeball.svg";
 
 export const PokemonDescription = () => {
+  const navigate = useNavigate();
   const { pokemonId } = useParams();
   const { pokemon, setPokemon, loading, error } = usePokemon(pokemonId);
 
   return (
     <main className="pokemonDescriptionContainer">
       <div className="containerInfo">
-        <ArrowbackIcon size="3rem" fill="var(--gray-700)" />
+        <button
+          className="btnGoBack"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <ArrowbackIcon size="1.7rem" fill="var(--gray-700)" />
+        </button>
+
         <p className="pokemonNumber"> {formatToHashNumber("1")}</p>
         <p className="pokemonName">Bulbasaur</p>
         <p className="pokemonGeneration">Generation 1</p>
@@ -155,13 +167,35 @@ export const PokemonDescription = () => {
           </div>
         </div>
       </div>
-      <div className="containerPokemon">
-        <div>
-          <img src="" alt="" />
-        </div>
-        <div>
-          <DefaultButton>Previous #000</DefaultButton>
-          <DefaultButton>Next #000</DefaultButton>
+      <div
+        className="containerPokemon"
+        style={{ backgroundColor: getTypeColor("grass") }}
+      >
+        <img className="bgDots" src={BackgroundDots} alt=" dots background" />
+        <img
+          className="bgPokeball"
+          src={BackgroundPokeball}
+          alt="pokeball background"
+        />
+
+        <img
+          className="pokemonImage"
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+          alt="pokemonImage"
+        />
+        <div className="btnSection ">
+          <DefaultButton
+            className="sizeXl fontSemibold"
+            style={{
+              backgroundColor: "var(--gray-100)",
+              color: "var(--gray-800)",
+            }}
+          >
+            Previous #000
+          </DefaultButton>
+          <DefaultButton className="sizeXl fontSemibold">
+            Next #000
+          </DefaultButton>
         </div>
       </div>
     </main>

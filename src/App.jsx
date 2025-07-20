@@ -26,7 +26,7 @@ export const App = () => {
 
           <Route path="/generations" element={<Generations />} />
 
-          <Route path="/buttonGallery" element={<ButtonGallery />} />
+          <Route path="/button-gallery" element={<ButtonGallery />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
