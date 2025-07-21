@@ -9,8 +9,10 @@ import { FinalScoreMessage } from "../components/molecules/FinalScoreMessage";
 import { NextIcon } from "../components/atoms/icons/nextIcon";
 import "./Game.css";
 import { GameLaguagesBar } from "../components/molecules/GameLaguagesBar";
+import { useLoaderData } from "react-router";
 
 export const Game = () => {
+  const data = useLoaderData();
   const LANGUAGES = [
     { name: "english", code: "en" },
     { name: "spanish", code: "es" },
@@ -18,7 +20,7 @@ export const Game = () => {
     { name: "korean", code: "ko" },
   ];
 
-  const [fethPokemons, setFetchPokemons] = useState([]);
+  const [fethPokemons, setFetchPokemons] = useState(data);
   const [loadingImage, setLoadingImage] = useState(false);
   const [showNextPokemonBtn, setShowNextPokemonBtn] = useState(false);
   const [counter, setCounter] = useState(5);
@@ -176,6 +178,7 @@ export const Game = () => {
   }
 
   async function getPokemons() {
+    console.log("haciendo fetch!!!!!!!!!!!!!");
     try {
       let res = await fetch(
         "https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0",

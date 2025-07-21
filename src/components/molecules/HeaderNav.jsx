@@ -5,7 +5,7 @@ export const HeaderNav = ({ className = "", onClickOption = () => {} }) => {
   const OPTIONS = [
     { route: "/", name: "Home" },
     { route: "/game", name: "Game" },
-    { route: "/pokemonsList", name: "Pokemons" },
+    { route: "/pokemons", name: "Pokemons" },
     { route: "/types", name: "Types" },
     { route: "/generations", name: "Generations" },
   ];
