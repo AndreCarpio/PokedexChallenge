@@ -39,6 +39,7 @@ export const App = () => {
               }
             } catch (error) {
               console.log("Error to get data: " + error);
+              return [];
             }
           },
           element: <Game />,
