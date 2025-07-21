@@ -1,0 +1,30 @@
+.pokedexData {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.pokedexData .aboutLabel {
+  font-weight: bold;
+  color: var(--success-color);
+}
+
+.pokedexData .about {
+  color: var(--gray-600);
+}
+
+.pokedexData .infoRow {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+}
+.pokedexData .infoRow .label {
+  font-weight: bold;
+  min-width: 7rem;
+  color: var(--gray-900);
+  flex: 1;
+}
+
+.pokedexData .infoRow .info {
+  min-width: 7rem;
+  flex: 1;
+}

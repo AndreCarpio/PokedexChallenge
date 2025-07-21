@@ -5,7 +5,14 @@ import { TypeIcon } from "./TypeIcon.jsx";
 
 export const PokemonTags = ({ types = [] }) => {
   return (
-    <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+        gap: "1rem",
+      }}
+    >
       {types.map((type, index) => {
         return (
           <div
