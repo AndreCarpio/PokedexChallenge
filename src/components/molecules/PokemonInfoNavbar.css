@@ -1,0 +1,27 @@
+.navBarInformation {
+  display: flex;
+}
+
+.navBarInformation .option {
+  flex: 1;
+  padding: 0.3rem 0.2rem;
+  color: var(--gray-700);
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid var(--gray-400);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.navBarInformation .option:hover {
+  background-color: var(--gray-100);
+}
+
+.navBarInformation .option.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+.navBarInformation .option.active:hover {
+  background-color: transparent;
+}
