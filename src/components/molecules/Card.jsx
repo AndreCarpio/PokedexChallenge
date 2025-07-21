@@ -7,18 +7,15 @@ import pokeballBackground from "../../assets/pokemonCardImages/pokeballBackgroun
 import "./Card.css";
 import { Link } from "react-router";
 
-export const Card = ({
-  pokemonName = "Sin Nombre",
-  pokemonNumber = "#000",
-  imageURL = "",
-  types = [],
-  id = "1",
-}) => {
+export const Card = ({ pokemon }) => {
   return (
     <Link
-      to={`/pokemons/${id}`}
+      to={`/pokemons/${pokemon.id}`}
+      state={{ pokemon }}
       className="pokemonCard"
-      style={{ backgroundColor: getTypeColor(types[0]) }}
+      style={{
+        backgroundColor: getTypeColor(pokemon.types.map((t) => t.type.name)[0]),
+      }}
     >
       <div
         style={{
@@ -29,8 +26,8 @@ export const Card = ({
           textAlign: "start",
         }}
       >
-        <CardNumber pokemonNumber={pokemonNumber}></CardNumber>
-        <CardPokemonName pokemonName={pokemonName}></CardPokemonName>
+        <CardNumber pokemonNumber={pokemon.id}></CardNumber>
+        <CardPokemonName pokemonName={pokemon.name}></CardPokemonName>
       </div>
 
       <div
@@ -41,7 +38,9 @@ export const Card = ({
           justifyContent: "center",
         }}
       >
-        <PokemonTags types={types}></PokemonTags>
+        <PokemonTags
+          types={pokemon.types.map((t) => t.type.name)}
+        ></PokemonTags>
       </div>
 
       <img
@@ -57,7 +56,7 @@ export const Card = ({
       />
 
       <img
-        src={imageURL}
+        src={pokemon.sprites.other["official-artwork"].front_default}
         style={{ position: "absolute", height: "80%", right: "-3rem" }}
         alt="pokemon image"
       />
