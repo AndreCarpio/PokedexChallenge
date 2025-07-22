@@ -1,0 +1,58 @@
+.evolution {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.evolutioLabel {
+  font-weight: bold;
+  color: var(--success-color);
+}
+
+.evolutionChain {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.evolutionPokemon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 1px solid var(--gray-200);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow-soft);
+  cursor: pointer;
+}
+.evolutionPokemon:hover {
+  background-color: var(--gray-50);
+}
+.evolutionPokemon .evolutionImageContainer {
+  background-color: var(--gray-200);
+  height: 7rem;
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.evolutionPokemon .evolutionImageContainer img {
+  height: 70%;
+}
+.evolutionPokemon .pokemonNumber {
+  font-size: 1rem;
+  text-align: center;
+  color: var(--gray-600);
+}
+
+.evolutionPokemon .pokemonName {
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--gray-800);
+}
+
+.pokemonTypes {
+  display: flex;
+}
