@@ -33,13 +33,6 @@ export const PokemonsList = () => {
           );
           if (resSearch.ok) {
             resSearch = await resSearch.json();
-            resSearch = {
-              url: resSearch.id,
-              id: resSearch.id,
-              name: resSearch.name,
-              image: resSearch.sprites.other["official-artwork"].front_default,
-              types: resSearch.types.map((t) => t.type.name),
-            };
             setPokemonSearch(resSearch);
           } else {
             throw new Error("Pokemon not found");
@@ -66,13 +59,7 @@ export const PokemonsList = () => {
       data.results.map(async (pokemon) => {
         const res = await fetch(pokemon.url);
         const details = await res.json();
-        return {
-          url: pokemon.url,
-          name: details.name,
-          image: details.sprites.other["official-artwork"].front_default,
-          types: details.types.map((t) => t.type.name),
-          id: details.id,
-        };
+        return details;
       }),
     );
     setPokemons((prev) => [...prev, ...pokemonsInfo]);
@@ -109,17 +96,8 @@ export const PokemonsList = () => {
       {showListPokemons && (
         <>
           <div className="containerPokemonCard">
-            {pokemons.map((pokemon, index) => {
-              return (
-                <Card
-                  key={pokemon.url}
-                  pokemonName={pokemon.name}
-                  pokemonNumber={index + 1}
-                  imageURL={pokemon.image}
-                  types={pokemon.types}
-                  id={pokemon.id}
-                ></Card>
-              );
+            {pokemons.map((pokemon) => {
+              return <Card key={pokemon.id} pokemon={pokemon}></Card>;
             })}
           </div>
           <div
@@ -143,14 +121,7 @@ export const PokemonsList = () => {
           {pokemonSearch != null && !loadingSearch && (
             <>
               <div className="containerPokemonCard">
-                <Card
-                  key={pokemonSearch.url}
-                  pokemonName={pokemonSearch.name}
-                  pokemonNumber={pokemonSearch.id}
-                  imageURL={pokemonSearch.image}
-                  types={pokemonSearch.types}
-                  id={pokemonSearch.id}
-                ></Card>
+                <Card key={pokemonSearch.id} pokemon={pokemonSearch}></Card>
               </div>
             </>
           )}
