@@ -25,24 +25,22 @@ export const App = () => {
         { index: true, element: <h1>Home</h1> },
         {
           path: "game",
-          loader: async () => {
-            try {
-              let res = await fetch(
-                "https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0",
-              );
-              if (res.ok) {
-                res = await res.json();
-                res = shuffleArrary(res.results);
-                return res;
-              } else {
-                throw new Error("Error to get data");
-              }
-            } catch (error) {
-              console.log("Error to get data: " + error);
-              return [];
-            }
+          lazy: async () => {
+            const [module, loaderModule] = await Promise.all([
+              import("./pages/Game"),
+              (async () => {
+                const res = await fetch(
+                  "https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0",
+                );
+                const data = await res.json();
+                return () => shuffleArrary(data.results);
+              })(),
+            ]);
+            return {
+              Component: module.Game,
+              loader: loaderModule,
+            };
           },
-          element: <Game />,
         },
         { path: "pokemons", element: <PokemonsList /> },
         { path: "pokemons/:pokemonId", element: <PokemonDescription /> },
@@ -55,25 +53,4 @@ export const App = () => {
   ]);
 
   return <RouterProvider router={router} />;
-  /* <BrowserRouter>
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<h1>Home</h1>} />
-
-          <Route path="/game" element={<Game />} />
-
-          <Route path="/pokemons" element={<PokemonsList />} />
-
-          <Route path="/pokemons/:pokemonId" element={<PokemonDescription />} />
-
-          <Route path="/types" element={<Types />} />
-
-          <Route path="/generations" element={<Generations />} />
-
-          <Route path="/buttonGallery" element={<ButtonGallery />} />
-
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter> */
 };
