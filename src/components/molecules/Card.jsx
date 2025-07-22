@@ -8,10 +8,18 @@ import "./Card.css";
 import { Link } from "react-router";
 
 export const Card = ({ pokemon }) => {
+  if (
+    !pokemon ||
+    !pokemon.id ||
+    !pokemon.name ||
+    !pokemon.types ||
+    !pokemon.sprites?.other?.["official-artwork"]?.front_default
+  ) {
+    return <div className="cardError">Invalid Pokémon data</div>;
+  }
   return (
     <Link
       to={`/pokemons/${pokemon.id}`}
-      state={{ pokemon }}
       className="pokemonCard"
       style={{
         backgroundColor: getTypeColor(pokemon.types.map((t) => t.type.name)[0]),

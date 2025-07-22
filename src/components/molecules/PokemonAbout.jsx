@@ -1,11 +1,11 @@
-import { useGet } from "../../hooks/useGet";
+import { useWeaknessesFromTypes } from "../../hooks/useWeaknessesFromTypes";
 import { formatHeight } from "../../utils/formatHeight";
 import { formatWeight } from "../../utils/formatWeight ";
 import { PokemonTags } from "../atoms/PokemonTags";
 import "./PokemonAbout.css";
 
 export const PokemonAbout = ({ pokemonSpecies, pokemon }) => {
-  const type = useGet(pokemon.types[0].type.url).data;
+  const { weaknesses } = useWeaknessesFromTypes(pokemon);
 
   const renderAbilities = (abilities) => {
     if (!Array.isArray(abilities)) return null;
@@ -21,16 +21,6 @@ export const PokemonAbout = ({ pokemonSpecies, pokemon }) => {
         </p>
       );
     });
-  };
-
-  const getWeaknessTypes = (damageRelations) => {
-    if (
-      !damageRelations ||
-      !Array.isArray(damageRelations.double_damage_from)
-    ) {
-      return [];
-    }
-    return damageRelations.double_damage_from.map((type) => type.name);
   };
 
   return (
@@ -58,7 +48,7 @@ export const PokemonAbout = ({ pokemonSpecies, pokemon }) => {
       <div className="infoRow">
         <p className="label">Weaknesses</p>
         <div className="info">
-          <PokemonTags types={getWeaknessTypes(type?.damage_relations)} />
+          <PokemonTags types={weaknesses} />
         </div>
       </div>
     </div>
