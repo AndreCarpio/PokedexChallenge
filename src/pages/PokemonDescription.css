@@ -9,7 +9,7 @@
   color: var(--gray-700);
   flex: 1;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 5rem;
   font-size: 1rem;
 }
 
@@ -51,31 +51,6 @@
   display: flex;
 }
 
-.navBarInformation {
-  display: flex;
-}
-
-.navBarInformation .option {
-  flex: 1;
-  padding: 0.3rem 0.2rem;
-  color: var(--gray-700);
-  font-weight: bold;
-  text-align: center;
-  border-bottom: 2px solid var(--gray-400);
-  cursor: pointer;
-}
-.navBarInformation .option:hover {
-  background-color: var(--gray-200);
-}
-
-.navBarInformation .option.active {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-}
-.navBarInformation .option.active:hover {
-  background-color: transparent;
-}
-
 .infoBox {
   display: flex;
   flex-direction: column;
@@ -88,134 +63,6 @@
   scrollbar-color: var(--gray-500) transparent;
 }
 
-.pokedexData {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-.aboutLabel {
-  font-weight: bold;
-  color: var(--success-color);
-}
-
-.about {
-  color: var(--gray-600);
-}
-
-.infoRow {
-  display: flex;
-  gap: 0.5rem;
-  flex: 1;
-}
-.infoRow .label {
-  font-weight: bold;
-  min-width: 7rem;
-  color: var(--gray-900);
-  flex: 1;
-}
-
-.infoRow .info {
-  min-width: 7rem;
-  flex: 1;
-}
-
-.stats {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.infoRowStat {
-  display: flex;
-  gap: 1rem;
-  flex: 1;
-  align-items: center;
-}
-
-.infoRowStat .stat {
-  font-weight: bold;
-  min-width: 5rem;
-  color: var(--gray-900);
-}
-
-.infoRowStat .bar {
-  min-width: 5rem;
-  flex: 1;
-  border-radius: 100px;
-  overflow: hidden;
-  background-color: var(--gray-300);
-}
-
-.infoRowStat .progress {
-  width: 50%;
-  background-color: var(--success-color);
-  height: 0.3rem;
-}
-
-.infoRowStat .minStat {
-  min-width: 5rem;
-}
-
-.infoRowStat .maxStat {
-  min-width: 5rem;
-}
-
-.evolution {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.evolutioLabel {
-  font-weight: bold;
-  color: var(--success-color);
-}
-
-.evolutionChain {
-  display: flex;
-  gap: 1.5rem;
-}
-.evolutionPokemon {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 0.3rem;
-  border: 1px solid var(--gray-200);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: var(--box-shadow-soft);
-  cursor: pointer;
-}
-.evolutionPokemon:hover {
-  background-color: var(--gray-50);
-}
-.evolutionPokemon .evolutionImageContainer {
-  background-color: var(--gray-200);
-  height: 7rem;
-  border-radius: 100%;
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.evolutionPokemon .evolutionImageContainer img {
-  height: 70%;
-}
-.evolutionPokemon .pokemonNumber {
-  font-size: 1rem;
-  text-align: center;
-  color: var(--gray-600);
-}
-
-.evolutionPokemon .pokemonName {
-  font-size: 1.2rem;
-  text-align: center;
-  color: var(--gray-800);
-}
-
-.pokemonTypes {
-  display: flex;
-}
 /*----------------------------------------------------------------------*/
 .containerPokemon {
   display: flex;
@@ -253,5 +100,33 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  padding: 1.5rem;
+  padding: 1.5rem 3rem;
+}
+
+.containerPokemonImageMobile {
+  display: none;
+  justify-content: center;
+}
+
+.pokemonImageMobile {
+  height: 15rem;
+}
+
+@media (max-width: 1024px) {
+  .containerPokemonImageMobile {
+    display: flex;
+  }
+
+  .containerPokemon {
+    display: none;
+  }
+
+  .pokemonDescriptionContainer {
+    display: flex;
+    height: fit-content;
+  }
+
+  .containerInfo {
+    padding: 1.5rem;
+  }
 }
