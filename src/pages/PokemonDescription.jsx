@@ -17,8 +17,11 @@ import { PokemonEvolutions } from "../components/molecules/PokemonEvolutions";
 import "./PokemonDescription.css";
 import { useWeaknessesFromTypes } from "../hooks/useWeaknessesFromTypes";
 import { useEvolutionChain } from "../hooks/useEvolutionChain";
+import { Loading } from "../components/atoms/loading";
 
 export const PokemonDescription = () => {
+  const MAX_ID = 1025; // Pokemon with complete information up to now
+  const MIN_ID = 1;
   const navigate = useNavigate();
   const { pokemonId } = useParams();
   const {
@@ -36,17 +39,31 @@ export const PokemonDescription = () => {
 
   const { weaknesses } = useWeaknessesFromTypes(pokemon);
 
-  const { evolutions } = useEvolutionChain(
-    pokemonSpecies?.evolution_chain?.url,
-  );
+  const {
+    evolutions,
+    loading: loadingEvolutions,
+    error: errorEvolution,
+  } = useEvolutionChain(pokemonSpecies?.evolution_chain?.url);
 
   if (loadingPokemon) {
-    return <p>Loading...</p>;
+    return (
+      <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+        <Loading></Loading>
+      </div>
+    );
   }
 
   if (!pokemon || errorPokemon) {
     return <p>This pokemon exist</p>;
   }
+
+  const getNext = (id) => {
+    return id >= MAX_ID ? MIN_ID : id + 1;
+  };
+
+  const getPrevious = (id) => {
+    return id <= MIN_ID ? MAX_ID : id - 1;
+  };
 
   return (
     <main className="pokemonDescriptionContainer">
@@ -93,7 +110,17 @@ export const PokemonDescription = () => {
           )}
           {navbarInfo === "stats" && <PokemonStats pokemon={pokemon} />}
           {navbarInfo === "evolution" && (
-            <PokemonEvolutions evolutions={evolutions} />
+            <>
+              {loadingEvolutions && (
+                <Loading text="Loading Evolutions"></Loading>
+              )}
+              {!loadingEvolutions && errorEvolution && (
+                <p>Error fetching evolutions</p>
+              )}
+              {!loadingEvolutions && !errorEvolution && (
+                <PokemonEvolutions evolutions={evolutions} />
+              )}
+            </>
           )}
         </div>
       </div>
@@ -121,11 +148,19 @@ export const PokemonDescription = () => {
               backgroundColor: "var(--gray-100)",
               color: "var(--gray-800)",
             }}
+            onCLick={() => {
+              navigate(`/pokemons/${getPrevious(pokemon.id)}`);
+            }}
           >
-            Previous {formatToHashNumber(pokemon.id - 1)}
+            Previous {formatToHashNumber(getPrevious(pokemon.id))}
           </DefaultButton>
-          <DefaultButton className="sizeXl fontSemibold">
-            Next {formatToHashNumber(pokemon.id + 1)}
+          <DefaultButton
+            className="sizeXl fontSemibold"
+            onCLick={() => {
+              navigate(`/pokemons/${getNext(pokemon.id)}`);
+            }}
+          >
+            Next {formatToHashNumber(getNext(pokemon.id))}
           </DefaultButton>
         </div>
       </div>
