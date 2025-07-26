@@ -1,70 +1,70 @@
-export function getTagColor(type) {
-  let res = "";
+export function getTagColor(type, opacity = 1) {
+  let hex = "";
 
   switch (type) {
     case "normal":
-      res = "#9DA0AA";
+      hex = "#9DA0AA";
       break;
     case "fighting":
-      res = "#D04164";
+      hex = "#D04164";
       break;
     case "flying":
-      res = "#748FC9";
+      hex = "#748FC9";
       break;
     case "poison":
-      res = "#A552CC";
+      hex = "#A552CC";
       break;
     case "ground":
-      res = "#DD7748";
+      hex = "#DD7748";
       break;
     case "rock":
-      res = "#BAAB82";
+      hex = "#BAAB82";
       break;
     case "bug":
-      res = "#8CB230";
+      hex = "#8CB230";
       break;
     case "ghost":
-      res = "#556AAE";
+      hex = "#556AAE";
       break;
     case "steel":
-      res = "#417D9A";
+      hex = "#417D9A";
       break;
     case "fire":
-      res = "#FD7D24";
+      hex = "#FD7D24";
       break;
     case "water":
-      res = "#4A90DA";
+      hex = "#4A90DA";
       break;
     case "grass":
-      res = "#62B957";
+      hex = "#62B957";
       break;
     case "electric":
-      res = "#EED535";
+      hex = "#EED535";
       break;
     case "psychic":
-      res = "#EA5D60";
+      hex = "#EA5D60";
       break;
     case "ice":
-      res = "#61CEC0";
+      hex = "#61CEC0";
       break;
     case "dragon":
-      res = "#0F6AC0";
+      hex = "#0F6AC0";
       break;
     case "dark":
-      res = "#58575F";
+      hex = "#58575F";
       break;
     case "fairy":
-      res = "#ED6EC7";
+      hex = "#ED6EC7";
       break;
     case "stellar":
-      res = "#777"; //
-      break;
     case "unknown":
-      res = "#777"; //
-      break;
     default:
-      res = "#777"; //
+      hex = "#777";
   }
 
-  return res;
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+
+  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
