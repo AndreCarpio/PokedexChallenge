@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 
-const extractPokemonNames = (chain) => {
-  const names = [];
+const extractPokemonIds = (chain) => {
+  const ids = [];
 
   const traverse = (node) => {
-    names.push(node.species.name);
+    const speciesUrl = node.species.url;
+    const id = speciesUrl.split("/").filter(Boolean).pop();
+    ids.push(id);
     node.evolves_to.forEach(traverse);
   };
 
   traverse(chain);
-  return names;
+  return ids;
 };
 
 export const useEvolutionChain = (chainUrl) => {
@@ -29,10 +31,10 @@ export const useEvolutionChain = (chainUrl) => {
         if (!res.ok) throw new Error("Error fetching evolution chain");
 
         const data = await res.json();
-        const names = extractPokemonNames(data.chain);
+        const ids = extractPokemonIds(data.chain);
 
-        const pokemonUrls = names.map(
-          (name) => `https://pokeapi.co/api/v2/pokemon/${name}`,
+        const pokemonUrls = ids.map(
+          (id) => `https://pokeapi.co/api/v2/pokemon/${id}`,
         );
 
         const responses = await Promise.all(
