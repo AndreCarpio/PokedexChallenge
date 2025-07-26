@@ -1,31 +1,33 @@
+import { Link } from "react-router";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLatter";
 import { getTagColor } from "../../utils/getTagColor.js";
 import "./PokemonTags.css";
 import { TypeIcon } from "./TypeIcon.jsx";
 
-export const PokemonTags = ({ types = [] }) => {
+export const PokemonTags = ({
+  types = [],
+  showText = true,
+  shadow = false,
+  circular = false,
+}) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        flexDirection: "row",
-        gap: "1rem",
-      }}
-    >
+    <div className="tagsContainer">
       {types.map((type, index) => {
         return (
-          <div
+          <Link
+            to={`/types/1`}
             key={index}
-            className="tagCard"
-            style={{ backgroundColor: getTagColor(type) }}
+            className={`tagCard ${circular ? "circular" : ""} ${showText ? "showText" : ""}`}
+            style={{
+              backgroundColor: getTagColor(type),
+              boxShadow: shadow ? `0px 4px 15px ${getTagColor(type, 0.6)}` : "",
+            }}
           >
             <div className="tagCardImage">
               <TypeIcon type={type}></TypeIcon>
             </div>
-
-            <p>{capitalizeFirstLetter(type)}</p>
-          </div>
+            {showText && <p>{capitalizeFirstLetter(type)}</p>}
+          </Link>
         );
       })}
     </div>
