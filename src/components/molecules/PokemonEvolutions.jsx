@@ -5,6 +5,7 @@ import { PokemonTags } from "../atoms/PokemonTags";
 import "./PokemonEvolutions.css";
 
 export const PokemonEvolutions = ({ evolutions }) => {
+  if (!evolutions) return <p> Evolutions not found.</p>;
   return (
     <div className="evolution">
       <p className="evolutioLabel">Evolution Chart</p>
