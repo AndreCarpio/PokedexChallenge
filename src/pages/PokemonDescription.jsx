@@ -54,7 +54,7 @@ export const PokemonDescription = () => {
         <button
           className="btnGoBack"
           onClick={() => {
-            navigate(-1);
+            navigate("/pokemons");
           }}
         >
           <ArrowbackIcon size="1.7rem" fill="var(--gray-700)" />
@@ -74,7 +74,7 @@ export const PokemonDescription = () => {
         </p>
 
         <div className="pokemonsTypes">
-          <PokemonTags types={pokemon.types.map((t) => t.type.name)} />
+          <PokemonTags types={pokemon.types.map((t) => t.type.name)} shadow />
         </div>
 
         <PokemonInfoNavbar

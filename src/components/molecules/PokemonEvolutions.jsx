@@ -1,4 +1,4 @@
-import { useEvolutionChain } from "../../hooks/useEvolutionChain";
+import { Link } from "react-router";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLatter";
 import { formatToHashNumber } from "../../utils/formatToHashNumber";
 import { PokemonTags } from "../atoms/PokemonTags";
@@ -10,7 +10,11 @@ export const PokemonEvolutions = ({ evolutions }) => {
       <p className="evolutioLabel">Evolution Chart</p>
       <div className="evolutionChain">
         {evolutions.map((pokemonEvolution) => (
-          <div className="evolutionPokemon" key={pokemonEvolution.id}>
+          <Link
+            className="evolutionPokemon"
+            key={pokemonEvolution.id}
+            to={`/pokemons/${pokemonEvolution.id}`}
+          >
             <div className="evolutionImageContainer">
               <img
                 src={
@@ -29,9 +33,12 @@ export const PokemonEvolutions = ({ evolutions }) => {
             <div className="pokemonTypes">
               <PokemonTags
                 types={pokemonEvolution.types.map((t) => t.type.name)}
+                showText={false}
+                shadow
+                circular
               />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

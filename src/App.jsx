@@ -22,7 +22,7 @@ export const App = () => {
 
           <Route path="/pokemons/:pokemonId" element={<PokemonDescription />} />
 
-          <Route path="/types" element={<Types />} />
+          <Route path="/types/:typeId" element={<Types />} />
 
           <Route path="/generations" element={<Generations />} />
 

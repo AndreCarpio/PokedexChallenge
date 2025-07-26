@@ -15,15 +15,18 @@
   flex-wrap: wrap;
   gap: 1.5rem;
 }
+
 .evolutionPokemon {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  align-items: center;
+  gap: 0.5rem;
   border: 1px solid var(--gray-200);
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: var(--box-shadow-soft);
   cursor: pointer;
+  text-decoration: none;
 }
 .evolutionPokemon:hover {
   background-color: var(--gray-50);

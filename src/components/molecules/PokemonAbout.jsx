@@ -45,7 +45,7 @@ export const PokemonAbout = ({ pokemonSpecies, pokemon, weaknesses }) => {
       <div className="infoRow">
         <p className="label">Weaknesses</p>
         <div className="info">
-          <PokemonTags types={weaknesses} />
+          <PokemonTags types={weaknesses} showText={false} />
         </div>
       </div>
     </div>
