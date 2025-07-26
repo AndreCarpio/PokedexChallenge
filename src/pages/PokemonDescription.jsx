@@ -15,6 +15,8 @@ import { useGet } from "../hooks/useGet";
 import { useState } from "react";
 import { PokemonEvolutions } from "../components/molecules/PokemonEvolutions";
 import "./PokemonDescription.css";
+import { useWeaknessesFromTypes } from "../hooks/useWeaknessesFromTypes";
+import { useEvolutionChain } from "../hooks/useEvolutionChain";
 
 export const PokemonDescription = () => {
   const navigate = useNavigate();
@@ -31,6 +33,12 @@ export const PokemonDescription = () => {
 
   const NAV_OPTIONS = ["data", "stats", "evolution"];
   const [navbarInfo, setNavbarInfo] = useState(NAV_OPTIONS[0]);
+
+  const { weaknesses } = useWeaknessesFromTypes(pokemon);
+
+  const { evolutions } = useEvolutionChain(
+    pokemonSpecies?.evolution_chain?.url,
+  );
 
   if (loadingPokemon) {
     return <p>Loading...</p>;
@@ -57,7 +65,7 @@ export const PokemonDescription = () => {
         <div className="containerPokemonImageMobile">
           <img
             className="pokemonImageMobile"
-            src={pokemon.sprites.other["official-artwork"].front_default}
+            src={pokemon?.sprites?.other["official-artwork"]?.front_default}
             alt="pokemonImage"
           />
         </div>
@@ -77,16 +85,19 @@ export const PokemonDescription = () => {
 
         <div className="infoBox">
           {navbarInfo === "data" && (
-            <PokemonAbout pokemonSpecies={pokemonSpecies} pokemon={pokemon} />
+            <PokemonAbout
+              pokemonSpecies={pokemonSpecies}
+              pokemon={pokemon}
+              weaknesses={weaknesses}
+            />
           )}
           {navbarInfo === "stats" && <PokemonStats pokemon={pokemon} />}
           {navbarInfo === "evolution" && (
-            <PokemonEvolutions
-              evolutionChainURL={pokemonSpecies?.evolution_chain?.url}
-            />
+            <PokemonEvolutions evolutions={evolutions} />
           )}
         </div>
       </div>
+
       <div
         className="containerPokemon"
         style={{ backgroundColor: getTypeColor(pokemon.types[0].type.name) }}

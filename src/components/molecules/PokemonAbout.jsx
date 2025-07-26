@@ -1,12 +1,9 @@
-import { useWeaknessesFromTypes } from "../../hooks/useWeaknessesFromTypes";
 import { formatHeight } from "../../utils/formatHeight";
 import { formatWeight } from "../../utils/formatWeight ";
 import { PokemonTags } from "../atoms/PokemonTags";
 import "./PokemonAbout.css";
 
-export const PokemonAbout = ({ pokemonSpecies, pokemon }) => {
-  const { weaknesses } = useWeaknessesFromTypes(pokemon);
-
+export const PokemonAbout = ({ pokemonSpecies, pokemon, weaknesses }) => {
   const renderAbilities = (abilities) => {
     if (!Array.isArray(abilities)) return null;
 

@@ -4,8 +4,7 @@ import { formatToHashNumber } from "../../utils/formatToHashNumber";
 import { PokemonTags } from "../atoms/PokemonTags";
 import "./PokemonEvolutions.css";
 
-export const PokemonEvolutions = ({ evolutionChainURL }) => {
-  const { evolutions } = useEvolutionChain(evolutionChainURL);
+export const PokemonEvolutions = ({ evolutions }) => {
   return (
     <div className="evolution">
       <p className="evolutioLabel">Evolution Chart</p>
