@@ -20,27 +20,55 @@ export const PokemonAbout = ({ pokemonSpecies, pokemon, weaknesses }) => {
     });
   };
 
+  const getAbout = () => {
+    const preferredVersions = ["omega-ruby", "sword", "ultra-sun", "x", "y"];
+
+    if (!pokemonSpecies?.flavor_text_entries) {
+      return;
+    }
+
+    const englishEntries = pokemonSpecies.flavor_text_entries.filter(
+      (entry) => entry.language.name === "en",
+    );
+
+    for (const version of preferredVersions) {
+      const entry = englishEntries.find((e) => e.version.name === version);
+      if (entry) {
+        return entry.flavor_text.replace(/\f|\n/g, " ");
+      }
+    }
+
+    return "No flavor text found.";
+  };
+
+  const getSpecies = () => {
+    const genusEntry = pokemonSpecies?.genera?.find(
+      (entry) => entry.language.name === "en",
+    );
+    return genusEntry ? genusEntry.genus : "Species  not found";
+  };
+
   return (
     <div className="pokedexData">
       <p className="aboutLabel">About this Pokemon:</p>
-      <p className="about">
-        {pokemonSpecies?.flavor_text_entries[44]?.flavor_text}
-      </p>
+      <p className="about">{getAbout()}</p>
       <div className="infoRow">
         <p className="label">Species</p>
-        <p className="info">{pokemonSpecies?.genera[7]?.genus}</p>
+        <p className="info">{getSpecies() || "Unknow"}</p>
       </div>
       <div className="infoRow">
         <p className="label">Height</p>
-        <p className="info">{formatHeight(pokemon.height)}</p>
+        <p className="info">{formatHeight(pokemon.height) || "Unknow"}</p>
       </div>
       <div className="infoRow">
         <p className="label">Weight</p>
-        <p className="info">{formatWeight(pokemon.weight)}</p>
+        <p className="info">{formatWeight(pokemon.weight) || "Unknow"}</p>
       </div>
       <div className="infoRow">
         <p className="label">Abilities</p>
-        <div className="info">{renderAbilities(pokemon.abilities)}</div>
+        <div className="info">
+          {renderAbilities(pokemon.abilities) || "Unknow"}
+        </div>
       </div>
       <div className="infoRow">
         <p className="label">Weaknesses</p>
