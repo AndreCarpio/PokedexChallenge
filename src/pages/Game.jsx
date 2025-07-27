@@ -9,6 +9,7 @@ import { FinalScoreMessage } from "../components/molecules/FinalScoreMessage";
 import { NextIcon } from "../components/atoms/icons/nextIcon";
 import "./Game.css";
 import { GameLaguagesBar } from "../components/molecules/GameLaguagesBar";
+import { Loading } from "../components/atoms/loading";
 
 export const Game = () => {
   const LANGUAGES = [
@@ -70,7 +71,7 @@ export const Game = () => {
 
   async function startGame() {
     setShowNextPokemonBtn(false);
-    setLoadingImage(false);
+    setLoadingImage(true);
     let newPokemonList = [];
     if (fethPokemons.length == 0) {
       newPokemonList = await getPokemons();
@@ -99,6 +100,7 @@ export const Game = () => {
       lives: 5,
       selectedOption: null,
     });
+    setLoadingImage(false);
   }
 
   async function nextPokemon() {
@@ -258,12 +260,8 @@ export const Game = () => {
               className={game.selectedOption && "visible"}
             />
           )}
-          {loadingImage && (
-            <div style={{ height: "3rem" }}>
-              <Spinner borderWidth="4px" color="var(--primary-color)"></Spinner>
-            </div>
-          )}
-          {!game.state && (
+          {loadingImage && <Loading text="Loading pokemons" />}
+          {!game.state && !loadingImage && (
             <FinalScoreMessage restart={startGame} score={game.score} />
           )}
         </div>
