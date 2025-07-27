@@ -38,6 +38,10 @@ export const PokemonAbout = ({ pokemonSpecies, pokemon, weaknesses }) => {
       }
     }
 
+    if (englishEntries.length > 0) {
+      return englishEntries[0].flavor_text.replace(/\f|\n/g, " ");
+    }
+
     return "No flavor text found.";
   };
 
