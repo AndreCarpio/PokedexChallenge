@@ -33,6 +33,24 @@
   --overlay-white-bg-80: rgba(233, 234, 242, 0.8);
   --overlay-white-bg-90: rgba(233, 234, 242, 0.9);
 
+  --info-color: #1d4ed8;
+  --info-color-light: #eff6ff;
+  --info-color-border: #93c5fd;
+  --info-icon: #60a5fa;
+
+  --error-color: #b91c1c;
+  --error-color-light: #fef2f2;
+  --error-color-border: #fca5a5;
+  --error-icon: #f87171;
+
+  --success-color-light: #ecfdf5;
+  --success-color-border: #6ee7b7;
+  --success-icon: #34d399;
+
+  --warning-color-light: #fefce8;
+  --warning-color-border: #fde68a;
+  --warning-icon: #facc15;
+
   /*
   Breakpoints 
   screen-xs: 480px;
