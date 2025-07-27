@@ -24,8 +24,6 @@ export const App = () => {
 
           <Route path="/types/:typeId" element={<Types />} />
 
-          <Route path="/generations" element={<Generations />} />
-
           <Route path="/button-gallery" element={<ButtonGallery />} />
 
           <Route path="*" element={<NotFound />} />
