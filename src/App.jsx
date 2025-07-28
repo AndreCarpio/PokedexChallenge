@@ -6,23 +6,29 @@ import { PokemonsList } from "./pages/PokemonsList";
 import { PokemonDescription } from "./pages/PokemonDescription";
 import { MainLayout } from "./layouts/MainLayout";
 import { ButtonGallery } from "./pages/ButtonGallery";
+import { PokemonProvider } from "./context/pokemonListContext";
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<Game />} />
+    <PokemonProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Game />} />
 
-          <Route path="/pokemons" element={<PokemonsList />} />
+            <Route path="/pokemons" element={<PokemonsList />} />
 
-          <Route path="/pokemons/:pokemonId" element={<PokemonDescription />} />
+            <Route
+              path="/pokemons/:pokemonId"
+              element={<PokemonDescription />}
+            />
 
-          <Route path="/button-gallery" element={<ButtonGallery />} />
+            <Route path="/button-gallery" element={<ButtonGallery />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </PokemonProvider>
   );
 };

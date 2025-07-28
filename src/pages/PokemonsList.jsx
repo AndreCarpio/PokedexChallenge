@@ -2,32 +2,35 @@ import { useState, useEffect, useRef } from "react";
 import "./PokemonsList.css";
 import { Card } from "../components/molecules/Card";
 import { SearchSeccion } from "../components/molecules/SearchSeccion";
-import { Spinner } from "../components/atoms/Spinner";
 import { Alert } from "../components/molecules/Alert";
 import { DefaultButton } from "../components/atoms/DefaultButton";
 import { Loading } from "../components/atoms/loading";
+import { usePokemonContext } from "../context/pokemonListContext";
 
 export const PokemonsList = () => {
-  const [pokemons, setPokemons] = useState([]);
+  const {
+    pokemons,
+    setPokemons,
+    limit,
+    setLimit,
+    offset,
+    setOffset,
+    nextPage,
+  } = usePokemonContext();
   const buttonLoadMore = useRef(null);
-  const nextPage = useRef(null);
   const inputSeacrh = useRef(null);
   const [pokemonSearch, setPokemonSearch] = useState(null);
   const [loadingSearch, setLoadingSearch] = useState(false);
   const [showListPokemons, setShowListPokemons] = useState(true);
-  const [limit, setLimit] = useState(25);
-  const [offset, setOffset] = useState(0);
-  const [autoFetch, setAutoFetch] = useState(false);
-  const [currentPage, setCurrentPage] = useState(
-    `https://pokeapi.co/api/v2/pokemon?limit=25&offset=0`,
-  );
+  const [autoFetch, setAutoFetch] = useState(true);
 
-  const handleApplyPagination = () => {
+  const handleApplyPagination = async () => {
     setAutoFetch(false);
     setPokemons([]);
-    setCurrentPage(
-      `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`,
+    await getPokemons(
+      `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`,
     );
+    setAutoFetch(true);
   };
 
   const searchPokemon = async (e) => {
@@ -61,15 +64,18 @@ export const PokemonsList = () => {
     }
   };
 
-  const getPokemons = async () => {
-    if (currentPage == null) {
-      setAutoFetch(false);
+  const getPokemons = async (url) => {
+    if (url == null) {
+      if (nextPage.current == null) {
+        setAutoFetch(false);
+        return;
+      }
       return;
     }
 
     setLoadingSearch(true);
 
-    const res = await fetch(currentPage);
+    const res = await fetch(url);
     const data = await res.json();
     nextPage.current = data.next;
 
@@ -81,9 +87,7 @@ export const PokemonsList = () => {
       }),
     );
     setPokemons((prev) => [...prev, ...pokemonsInfo]);
-    if (!autoFetch) {
-      setAutoFetch(true);
-    }
+
     setLoadingSearch(false);
   };
 
@@ -94,7 +98,7 @@ export const PokemonsList = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setCurrentPage(nextPage.current);
+          getPokemons(nextPage.current);
         }
       },
       { rootMargin: "300px" },
@@ -104,10 +108,6 @@ export const PokemonsList = () => {
       observer.disconnect();
     };
   }, [autoFetch, showListPokemons]);
-
-  useEffect(() => {
-    getPokemons();
-  }, [currentPage]);
 
   return (
     <main>
