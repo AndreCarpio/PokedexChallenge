@@ -44,6 +44,8 @@ export const Loading = ({
         style={{
           height: current.spinner.size,
           width: current.spinner.size,
+          minHeight: current.spinner.size,
+          minWidth: current.spinner.size,
           borderWidth: current.spinner.borderWidth,
         }}
       />

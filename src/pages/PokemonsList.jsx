@@ -3,18 +3,32 @@ import "./PokemonsList.css";
 import { Card } from "../components/molecules/Card";
 import { SearchSeccion } from "../components/molecules/SearchSeccion";
 import { Spinner } from "../components/atoms/Spinner";
+import { Alert } from "../components/molecules/Alert";
+import { DefaultButton } from "../components/atoms/DefaultButton";
+import { Loading } from "../components/atoms/loading";
 
 export const PokemonsList = () => {
   const [pokemons, setPokemons] = useState([]);
   const buttonLoadMore = useRef(null);
-  const [currentPage, setCurrentPage] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0",
-  );
   const nextPage = useRef(null);
   const inputSeacrh = useRef(null);
   const [pokemonSearch, setPokemonSearch] = useState(null);
   const [loadingSearch, setLoadingSearch] = useState(false);
   const [showListPokemons, setShowListPokemons] = useState(true);
+  const [limit, setLimit] = useState(25);
+  const [offset, setOffset] = useState(0);
+  const [autoFetch, setAutoFetch] = useState(false);
+  const [currentPage, setCurrentPage] = useState(
+    `https://pokeapi.co/api/v2/pokemon?limit=25&offset=0`,
+  );
+
+  const handleApplyPagination = () => {
+    setAutoFetch(false);
+    setPokemons([]);
+    setCurrentPage(
+      `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`,
+    );
+  };
 
   const searchPokemon = async (e) => {
     if (e.key === "Enter") {
@@ -49,8 +63,12 @@ export const PokemonsList = () => {
 
   const getPokemons = async () => {
     if (currentPage == null) {
+      setAutoFetch(false);
       return;
     }
+
+    setLoadingSearch(true);
+
     const res = await fetch(currentPage);
     const data = await res.json();
     nextPage.current = data.next;
@@ -63,15 +81,20 @@ export const PokemonsList = () => {
       }),
     );
     setPokemons((prev) => [...prev, ...pokemonsInfo]);
+    if (!autoFetch) {
+      setAutoFetch(true);
+    }
+    setLoadingSearch(false);
   };
 
   useEffect(() => {
+    if (!autoFetch || !showListPokemons) {
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          if (showListPokemons) {
-            setCurrentPage(nextPage.current);
-          }
+          setCurrentPage(nextPage.current);
         }
       },
       { rootMargin: "300px" },
@@ -80,7 +103,7 @@ export const PokemonsList = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [autoFetch, showListPokemons]);
 
   useEffect(() => {
     getPokemons();
@@ -95,11 +118,51 @@ export const PokemonsList = () => {
 
       {showListPokemons && (
         <>
-          <div className="containerPokemonCard">
-            {pokemons.map((pokemon) => {
-              return <Card key={pokemon.id} pokemon={pokemon}></Card>;
-            })}
+          <div className="fetchOptions">
+            <div className="option">
+              <label>Limit: </label>
+              <select
+                value={limit}
+                onChange={(e) => setLimit(Number(e.target.value))}
+              >
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+                <option value={75}>75</option>
+              </select>
+            </div>
+            <div className="option">
+              <label>Offset: </label>
+              <input
+                type="number"
+                min={0}
+                value={offset}
+                onChange={(e) => {
+                  const val = Math.max(0, Number(e.target.value));
+                  setOffset(val);
+                }}
+              />
+            </div>
+            <DefaultButton onClick={handleApplyPagination}>Apply</DefaultButton>
           </div>
+
+          {pokemons.length > 0 && (
+            <div className="containerPokemonCard">
+              {pokemons.map((pokemon) => {
+                return <Card key={pokemon.id} pokemon={pokemon}></Card>;
+              })}
+            </div>
+          )}
+
+          {!loadingSearch && pokemons.length == 0 && (
+            <div className="messagePokemonNoFound">
+              <Alert
+                type="warn"
+                title="No Pokémon found."
+                description="Try using a smaller offset criteria."
+              />
+            </div>
+          )}
+
           <div
             style={{
               height: "5rem",
@@ -108,10 +171,11 @@ export const PokemonsList = () => {
               padding: "1rem",
             }}
           >
-            <Spinner color="var(--primary-color)"></Spinner>
+            {loadingSearch && <Loading text="Loading Pokemons" />}
           </div>
         </>
       )}
+
       <button ref={buttonLoadMore} style={{ opacity: 0 }}>
         load more
       </button>
@@ -119,29 +183,24 @@ export const PokemonsList = () => {
       {!showListPokemons && (
         <>
           {pokemonSearch != null && !loadingSearch && (
-            <>
-              <div className="containerPokemonCard">
-                <Card key={pokemonSearch.id} pokemon={pokemonSearch}></Card>
-              </div>
-            </>
-          )}
-
-          {loadingSearch && (
-            <div
-              style={{
-                height: "5rem",
-                display: "flex",
-                justifyContent: "center",
-                padding: "1rem",
-                margin: "3rem auto",
-              }}
-            >
-              <Spinner color="var(--primary-color)"></Spinner>
+            <div className="containerPokemonCard">
+              <Card key={pokemonSearch.id} pokemon={pokemonSearch}></Card>
             </div>
           )}
+
+          {loadingSearch && <Loading text="Searching Pokemon" />}
           {!loadingSearch && !pokemonSearch && (
             <div className="messagePokemonNoFound">
-              <p>Pokémon "{inputSeacrh.current.value}" not found</p>
+              <Alert
+                type="warn"
+                title={`No Pokémon found for '${inputSeacrh.current.value}'.`}
+                description="Try the following options:"
+                list={[
+                  "Check for typos",
+                  "Use official Pokédex ID",
+                  "Try a simpler name like 'pikachu'",
+                ]}
+              />
             </div>
           )}
         </>

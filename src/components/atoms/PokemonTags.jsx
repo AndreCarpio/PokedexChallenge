@@ -14,8 +14,7 @@ export const PokemonTags = ({
     <div className="tagsContainer">
       {types.map((type, index) => {
         return (
-          <Link
-            to={`/types/1`}
+          <div
             key={index}
             className={`tagCard ${circular ? "circular" : ""} ${showText ? "showText" : ""}`}
             style={{
@@ -27,7 +26,7 @@ export const PokemonTags = ({
               <TypeIcon type={type}></TypeIcon>
             </div>
             {showText && <p>{capitalizeFirstLetter(type)}</p>}
-          </Link>
+          </div>
         );
       })}
     </div>

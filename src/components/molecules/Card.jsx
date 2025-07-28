@@ -35,18 +35,21 @@ export const Card = ({ pokemon }) => {
       </div>
 
       <img
+        loading="lazy"
         src={dottedPattern}
         className="dottedPattern"
         alt="dottedPattern background"
       />
 
       <img
+        loading="lazy"
         src={pokeballBackground}
         className="pokeballBackground"
         alt="pokeball background"
       />
 
       <img
+        loading="lazy"
         src={pokemon.sprites.other["official-artwork"].front_default}
         className="pokemonImage"
         alt="pokemon image"
