@@ -12,12 +12,13 @@ import { PokemonStats } from "../components/molecules/PokemonStats";
 import { PokemonAbout } from "../components/molecules/PokemonAbout";
 import { PokemonInfoNavbar } from "../components/molecules/PokemonInfoNavbar";
 import { useGet } from "../hooks/useGet";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PokemonEvolutions } from "../components/molecules/PokemonEvolutions";
 import "./PokemonDescription.css";
 import { useWeaknessesFromTypes } from "../hooks/useWeaknessesFromTypes";
 import { useEvolutionChain } from "../hooks/useEvolutionChain";
 import { Loading } from "../components/atoms/loading";
+import { Alert } from "../components/molecules/Alert";
 
 export const PokemonDescription = () => {
   const MAX_ID = 1025; // Pokemon with complete information up to now
@@ -45,6 +46,10 @@ export const PokemonDescription = () => {
     error: errorEvolution,
   } = useEvolutionChain(pokemonSpecies?.evolution_chain?.url);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pokemonId]);
+
   if (loadingPokemon) {
     return (
       <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
@@ -54,7 +59,15 @@ export const PokemonDescription = () => {
   }
 
   if (!pokemon || errorPokemon) {
-    return <p>This pokemon exist</p>;
+    return (
+      <div style={{ margin: "1.5rem" }}>
+        <Alert
+          type="error"
+          title="Pokémon not found"
+          description={`No Pokémon found with ID "${pokemonId}". Please try a different one.`}
+        />
+      </div>
+    );
   }
 
   const getNext = (id) => {
