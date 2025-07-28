@@ -3,7 +3,7 @@ import "./footer.css";
 export const Footer = () => {
   return (
     <footer>
-      <p> © 2025 Crafted by Andre. All rights deliberately unreserved.</p>
+      <p> © 2025 Developed by Andre. No rights reserved.</p>
     </footer>
   );
 };

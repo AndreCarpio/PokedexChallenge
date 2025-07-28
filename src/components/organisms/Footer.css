@@ -1,14 +1,16 @@
 footer {
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
+  background-color: var(--gray-100);
+  border-top: 1px solid var(--gray-300);
 }
 
 footer p {
-  color: white;
+  color: var(--gray-800);
   font-size: 0.9rem;
-  font-weight: 200;
+  font-weight: 300;
+  text-align: center;
 }

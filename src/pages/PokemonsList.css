@@ -50,6 +50,10 @@ select {
 }
 
 @media (max-width: 640px) {
+  .fetchOptions {
+    padding: 1.5rem;
+  }
+
   .containerPokemonCard {
     padding: 1.5rem;
     gap: 2.5rem;

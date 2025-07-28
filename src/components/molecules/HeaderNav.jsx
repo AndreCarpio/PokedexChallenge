@@ -3,10 +3,8 @@ import "./HeaderNav.css";
 
 export const HeaderNav = ({ className = "", onClickOption = () => {} }) => {
   const OPTIONS = [
-    { route: "/", name: "Home" },
-    { route: "/game", name: "Game" },
+    { route: "/", name: "Game" },
     { route: "/pokemons", name: "Pokemons" },
-    { route: "/types", name: "Types" },
   ];
 
   return (

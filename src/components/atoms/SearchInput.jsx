@@ -15,6 +15,7 @@ export const SearchInput = ({ ...props }) => {
         spellCheck="false"
         placeholder="What Pokémon are you looking for?"
         className=""
+        enterKeyHint="search"
         {...props}
       />
     </div>
